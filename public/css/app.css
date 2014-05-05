@@ -1,0 +1,112 @@
+html, body {
+height: 100%;
+}
+footer {
+color: #666;
+background: #222;
+padding: 17px 0 18px 0;
+border-top: 1px solid #000;
+}
+footer a {
+color: #999;
+}
+footer a:hover {
+color: #efefef;
+}
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0;
+}
+.push {
+height: 63px;
+}
+/* not required for sticky footer; just pushes hero down a bit */
+.wrapper > .container {
+padding-top: 0px;
+}
+
+.col {
+  padding-top: 10px;
+	padding-left: 7px;
+}
+h3 a{
+	font-size: 15px;
+}
+
+table td,th {
+   text-align: center;   
+}
+.tweet {
+    margin: 0 auto;
+    width: 100%;
+    clear: both;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    float: left;
+    padding: 10px;
+}
+
+.avatar img {
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px rgba(33,33,33,0.3);
+}
+
+.user,
+.time {
+    float: left;
+    padding: 4px 8px;
+    box-shadow: 2px 2px 2px rgba(33,33,33,0.3);
+}
+
+.data {
+    width: 100%;
+    overflow: hidden;
+}
+
+.user {
+    font-size: 16px;
+    margin-top: 20px;
+		margin-left: 15px;
+}
+
+.time {
+    background-color: #5A9452;
+    font-size: 9px;
+    margin-left: 5px;
+    margin-top: 22px;
+}
+
+.text {
+    background-color: white;
+    color: black;
+    box-shadow: 5px 5px 5px rgba(33,33,33,0.5);
+    font-size: 12px;
+    float: left;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.text a {
+    text-decoration: none;
+    color:#5A9452;
+}
+
+.text a:hover {
+    text-decoration: underline;
+}
+.text a.hide-tweet, a.unhide-tweet {
+    float: right;
+}
+#messageExplanation {
+  color: gray;
+  ul {
+    list-style: none;
+
+  }
+}
