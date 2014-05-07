@@ -24,6 +24,24 @@ Route::group(array('before' => 'auth'), function()
     Route::get('secret', 'HomeController@showSecret');
 });
 
+    
+Route::get('evaluaciones', array('uses' => 'EvaluacionesController@mostrarEvaluaciones'));
+Route::post('evaluaciones', array('uses' => 'EvaluacionesController@crearEvaluacion'));
+
+//Route::get('evaluaciones/nuevo', array('uses' => 'EvaluacionesController@nuevaEvaluacion'));
+ 
+//Route::post('evaluaciones/crear', array('uses' => 'EvaluacionesController@crearEvaluacion'));
+// esta ruta es a la cual apunta el formulario donde se introduce la información de la evaluacion
+// como podemos observar es para recibir peticiones POST
+ 
+Route::get('evaluaciones/{id}', array('uses'=>'EvaluacionesController@verEvaluacion'));
+// esta ruta contiene un parámetro llamado {id}, que sirve para indicar el id de la evaluacion que deseamos buscar
+// este parámetro es pasado al controlador, podemos colocar todos los parámetros que necesitemos
+// solo hay que tomar en cuenta que los parámetros van entre llaves {}
+// si el parámetro es opcional se colocar un signo de interrogación {parámetro?}
+
+Route::get('evaluaciones/borrar/{id}', array('uses'=>'EvaluacionesController@eliminarEvaluacion'));
+
 /*
 Route::get('/', function()
 {

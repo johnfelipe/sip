@@ -16,7 +16,7 @@ class CreateEvaluacionesTables extends Migration {
 			$table->increments('id');
 			$table->string('nombre', 100);
 			$table->string('descripcion', 300);
-			$table->integer('estado');
+			$table->integer('estado')->default(0);
 			$table->string('user_id',20)->unsigned();
 			$table->integer('id_codigo_evaluacion')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
