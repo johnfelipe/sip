@@ -2,20 +2,21 @@
  
 @section('sidebar')
      @parent
-     Información de evaluación
+     Evaluaciones
 @stop
  
 @section('content')
-        
+
         <h1>
   Evaluación {{$evaluacion->nombre}}
       
 </h1>
         
-        {{ $evaluacion->descripcion }}
-        
+        {{ $evaluacion->descripcion }}        
 <br />
-        {{ $evaluacion->created_at}}
+        {{ $evaluacion->codigos_evaluaciones->nombre }}
+<br />
+		{{ $evaluacion->created_at }}
 <br />
 <br />
 

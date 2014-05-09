@@ -1,11 +1,14 @@
 @extends('layouts.master')
+
  
 @section('sidebar')
      @parent
-     Lista de evaluaciones
+     Evaluaciones
 @stop
  
 @section('content')
+
+
 <h1>
   Gestión de Evaluaciones
   
@@ -13,6 +16,7 @@
 <div class="row evaluaciones">
 	<h3>Nueva Evaluación</h3>
 	{{ Form::open(array('url' => 'evaluaciones')) }}
+
 	@if (Session::get('mensaje'))
 		<div class="alert alert-success">{{Session::get('mensaje')}}</div>
 	@endif
@@ -40,21 +44,29 @@
     @endif
     <div class="form-group">
     	{{Form::label('tipo_de_evaluacion', 'Tipo de Evaluación')}}
-        <select class="form-control">
-    		<option value="one">One</option>
-		</select>
+        {{Form::select('id_codigo_evaluacion', $combobox, $selected) }}
     </div>
 	{{Form::submit('Guardar', array('class'=>'btn btn-success'))}}
 	{{ Form::close() }}
 </div>
 <h3>Evaluaciones</h3>
-<div class="list-group"> 
-<ul>
-  @foreach($evaluaciones as $evaluacion)  
-    <li>
-      {{ HTML::link( 'evaluaciones/'.$evaluacion->id , $evaluacion->nombre ) }}
-      {{ HTML::link('evaluaciones/borrar/'.$evaluacion->id, 'Eliminar') }} 
-    </li>    
+<div class="list-group">
+<table class="table table-striped" style="width: 900px">
+    <tr>
+        <th>Nombre</th>        
+        <th></th>
+    </tr> 
+	<ul>
+  @foreach($evaluaciones as $evaluacion)
+  <tr>
+        <td>{{ HTML::link( 'evaluaciones/'.$evaluacion->id , $evaluacion->nombre ) }}</td>        
+        <td><a href="{{{ URL::to('evaluaciones/borrar/'.$evaluacion->id) }}}">Eliminar</a></td>            
+    </tr>    
   @endforeach
-</ul>
+	</ul>
+</table>
 @stop
+
+
+
+  

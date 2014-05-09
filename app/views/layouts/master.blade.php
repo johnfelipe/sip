@@ -49,7 +49,7 @@
                                 <a class="dropdown-toggle text-white"  data-toggle="dropdown">Evaluaciones<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{{ URL::to('evaluaciones') }}}">Gestión de Evaluaciones</a></li>                                        
-                                        <li><a href="{{{ URL::to('evaluaciones') }}}">Subir Mapa Técnico</a></li>
+                                        <li><a href="{{{ URL::to('evaluaciones.mapa_tecnico') }}}">Subir Mapa Técnico</a></li>
                                         <li><a href="{{{ URL::to('evaluaciones') }}}">Generar Cadena de Respuestas (Key)</a></li>
                                         <li><a href="{{{ URL::to('evaluaciones') }}}">Descargar Key a Excel</a></li>
                                     </ul>

@@ -14,12 +14,13 @@ class CreateNivelesTables extends Migration {
 	{
 		Schema::create('niveles', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id_evaluacion')->unsigned();
+			$table->integer('id_evaluacion')->unsigned()->nullable();
 			$table->integer('nivel');
-			$table->string('descripcion', 200);
 			$table->integer('preguntas');
 			$table->integer('preguntas_operativas');
-			$table->foreign('id_evaluacion')->references('id')->on('evaluaciones');
+			$table->foreign('id_evaluacion')
+				->references('id')->on('evaluaciones')
+				->onDelete('set null');
 			$table->timestamps();
 		});
 	}

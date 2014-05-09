@@ -1,0 +1,110 @@
+--DROP FUNCTION insertar_esquema() CASCADE;
+CREATE OR REPLACE FUNCTION insertar_esquema() RETURNS TRIGGER AS $insertaresquema$
+DECLARE
+BEGIN
+	IF NEW.id_codigo_evaluacion = 1 THEN--ENES
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,1,108,120,now(),now());
+		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
+			VALUES (NEW.id,1,now(),now());
+		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
+			VALUES (NEW.id,2,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,55,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,56,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,57,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,58,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,59,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,60,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,61,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,62,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,63,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,64,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,65,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,66,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,67,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,68,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,69,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,70,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,71,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,72,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,73,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,2,74,now(),now());
+	END IF;
+	IF NEW.id_codigo_evaluacion = 2 THEN--Quiero Ser Maestro - Razonamiento
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,1,88,72,now(),now());
+		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
+			VALUES (NEW.id,1,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,1,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,2,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,3,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,4,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,5,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,1,1,6,now(),now());
+	END IF;	
+	IF NEW.id_codigo_evaluacion = 6 THEN--Ser Estudiante en la Mitad del Mundo
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,2,56,56,now(),now());
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,3,63,57,now(),now());
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,4,69,63,now(),now());
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,5,88,79,now(),now());
+		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
+			VALUES (NEW.id,1,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,2,1,1,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,2,1,2,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,3,1,1,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,3,1,2,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,4,1,1,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,4,1,2,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,5,1,1,now(),now());
+		INSERT INTO formas(id_evaluacion,nivel,version,forma,created_at,updated_at) 
+			VALUES (NEW.id,5,1,2,now(),now());
+	END IF;
+	DELETE FROM niveles WHERE id_evaluacion is null;
+	DELETE FROM versiones WHERE id_evaluacion is null;
+	DELETE FROM formas WHERE id_evaluacion is null;
+	RETURN NULL;
+END;
+
+$insertaresquema$ LANGUAGE plpgsql;
+
+CREATE TRIGGER insertaresquema
+AFTER INSERT ON evaluaciones
+FOR EACH ROW
+EXECUTE PROCEDURE insertar_esquema();

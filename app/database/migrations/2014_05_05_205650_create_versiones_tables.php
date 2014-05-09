@@ -14,9 +14,11 @@ class CreateVersionesTables extends Migration {
 	{
 		Schema::create('versiones', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id_evaluacion')->unsigned();
+			$table->integer('id_evaluacion')->unsigned()->nullable();
 			$table->integer('version');
-			$table->foreign('id_evaluacion')->references('id')->on('evaluaciones');
+			$table->foreign('id_evaluacion')
+				->references('id')->on('evaluaciones')
+				->onDelete('set null');
 			$table->timestamps();
 		});
 	}

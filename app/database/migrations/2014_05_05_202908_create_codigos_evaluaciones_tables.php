@@ -14,7 +14,7 @@ class CreateCodigosEvaluacionesTables extends Migration {
 	{
 		Schema::create('codigos_evaluaciones', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('nombre', 20);
+			$table->string('nombre', 50);
 			$table->timestamps();
 		});
 	}

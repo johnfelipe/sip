@@ -3,9 +3,18 @@
 class Evaluaciones extends Eloquent {
 	protected $guarded = array();
 	protected $table = 'evaluaciones';
-	protected $fillable = array('nombre', 'descripcion');
+	protected $fillable = array('nombre', 'descripcion', 'id_codigo_evaluacion', 'user_id');
 
 	public static $rules = array();
+
+    /*protected $attributes = array(
+        'user_id' => Session::get('user_id'),
+    );*/
+
+    public function codigos_evaluaciones()
+    {
+        return $this->belongsTo('CodigosEvaluaciones', 'id_codigo_evaluacion');
+    }
 
 	public static function agregarEvaluacion($input){
         // función que recibe como parámetro la información del formulario para crear la Evaluacion
@@ -32,7 +41,6 @@ class Evaluaciones extends Eloquent {
             $evaluacion = static::create($input);        
             
             // se retorna un mensaje de éxito al controlador
-            $respuesta['mensaje'] = 'Evaluacion creada exitosamente!';
             $respuesta['error']   = false;
             $respuesta['data']    = $evaluacion;
         }    

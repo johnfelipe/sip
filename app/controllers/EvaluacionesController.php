@@ -5,11 +5,14 @@ class EvaluacionesController extends BaseController {
 	public function mostrarEvaluaciones()
     {
         $evaluaciones = Evaluaciones::all();
+        $codigos_evaluaciones = CodigosEvaluaciones::all()->lists('nombre', 'id');
+        $combobox = $codigos_evaluaciones;
+        $selected = array();
         
         // Con el método all() le estamos pidiendo al modelo de Evaluacion
         // que busque todos los registros contenidos en esa tabla y los devuelva en un Array
         
-        return View::make('evaluaciones.lista', array('evaluaciones' => $evaluaciones));
+        return View::make('evaluaciones.lista', array('evaluaciones' => $evaluaciones), compact('combobox', 'selected'));
         
         // El método make de la clase View indica cual vista vamos a mostrar al usuario
         //y también pasa como parámetro los datos que queramos pasar a la vista.
@@ -32,6 +35,8 @@ class EvaluacionesController extends BaseController {
 
         // llamamos a la función de agregar vendedor en el modelo y le pasamos los datos del formulario
         $respuesta = Evaluaciones::agregarEvaluacion(Input::all());
+
+        
         
         // Dependiendo de la respuesta del modelo
         // retornamos los mensajes de error con los datos viejos del formulario
@@ -39,7 +44,7 @@ class EvaluacionesController extends BaseController {
         if ($respuesta['error'] == true){
             return Redirect::to('evaluaciones')->withErrors($respuesta['mensaje'] )->withInput();
         }else{
-            return Redirect::to('evaluaciones')->with('mensaje', $respuesta['mensaje']);
+            return Redirect::to('evaluaciones');
         }
  
     }
@@ -52,7 +57,7 @@ class EvaluacionesController extends BaseController {
     // en este método podemos observar como se recibe un parámetro llamado id
     // este es el id de la evaluacion que se desea buscar y se debe declarar en la ruta como un parámetro
     
-        $evaluacion = Evaluaciones::find($id);
+        $evaluacion = Evaluaciones::with('codigos_evaluaciones')->find($id);
         // para buscar a la evaluacion utilizamos el metido find que nos proporciona Laravel
         // este método devuelve un objeto con toda la información que contiene una evaluacion
     
@@ -70,6 +75,24 @@ class EvaluacionesController extends BaseController {
         $evaluacion = Evaluaciones::find($id);
         $evaluacion->delete();
         return Redirect::to('evaluaciones');
+    }
+
+    public function mapaTecnico()
+    {
+               
+        $evaluaciones = Evaluaciones::all();
+
+        $evaluacionesSinMapa = Evaluaciones::where('estado', '=', '0')->lists('nombre', 'id', 'id_codigo_evaluacion');        
+        $combobox = $evaluacionesSinMapa;
+        $selected = array();        
+      
+        return View::make('evaluaciones.mapa', array('evaluaciones' => $evaluaciones), compact('combobox', 'selected'));        
+    }
+
+    public function subirMapaTecnico()
+    {
+               
+        return Redirect::to('evaluaciones.mapa_tecnico');        
     }
 
 }
