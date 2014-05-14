@@ -16,6 +16,7 @@
 <div class="row evaluaciones">
 	<h3>Nueva Evaluación</h3>
 	{{ Form::open(array('url' => 'evaluaciones')) }}
+    
 
 	@if (Session::get('mensaje'))
 		<div class="alert alert-success">{{Session::get('mensaje')}}</div>
@@ -53,18 +54,21 @@
 <div class="list-group">
 <table class="table table-striped" style="width: 900px">
     <tr>
+        <th>ID Evaluación</th>
         <th>Nombre</th>        
         <th></th>
     </tr> 
 	<ul>
   @foreach($evaluaciones as $evaluacion)
   <tr>
+        <td>{{ $evaluacion->id }}</td>
         <td>{{ HTML::link( 'evaluaciones/'.$evaluacion->id , $evaluacion->nombre ) }}</td>        
         <td><a href="{{{ URL::to('evaluaciones/borrar/'.$evaluacion->id) }}}">Eliminar</a></td>            
     </tr>    
   @endforeach
 	</ul>
 </table>
+</div>
 @stop
 
 

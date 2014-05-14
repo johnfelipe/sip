@@ -11,9 +11,8 @@
 	],
 	"require": {
 		"laravel/framework": "4.1.*",
-		"laravelbook/ardent": "dev-master#8ac1128e98d930ca34c6e6cd652961fa77653eaf as 2.4.0",
-		"zizaco/entrust": "dev-master",
-		"zizaco/confide": "dev-master"
+		"laravelbook/ardent": "dev-master#8ac1128e98d930ca34c6e6cd652961fa77653eaf as 2.4.0",		
+		"mnshankar/CSV": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

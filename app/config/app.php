@@ -119,8 +119,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Way\Generators\GeneratorsServiceProvider',
-		'Zizaco\Entrust\EntrustServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',		
+		'mnshankar\CSV\CSVServiceProvider',
 
 	),
 
@@ -162,7 +162,6 @@ return array(
 		'Crypt'           => 'Illuminate\Support\Facades\Crypt',
 		'DB'              => 'Illuminate\Support\Facades\DB',
 		'Eloquent'        => 'Illuminate\Database\Eloquent\Model',
-		'Entrust'    	  => 'Zizaco\Entrust\EntrustFacade',
 		'Event'           => 'Illuminate\Support\Facades\Event',
 		'File'            => 'Illuminate\Support\Facades\File',
 		'Form'            => 'Illuminate\Support\Facades\Form',
@@ -188,6 +187,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+		'CSV'             =>'mnshankar\CSV\CSVFacade',
 
 	),
 

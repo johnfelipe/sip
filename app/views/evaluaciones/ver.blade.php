@@ -7,7 +7,7 @@
  
 @section('content')
 
-        <h1>
+<h1>
   Evaluación {{$evaluacion->nombre}}
       
 </h1>

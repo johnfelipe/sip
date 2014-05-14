@@ -50,17 +50,14 @@
                                     <ul class="dropdown-menu">
                                         <li><a href="{{{ URL::to('evaluaciones') }}}">Gestión de Evaluaciones</a></li>                                        
                                         <li><a href="{{{ URL::to('evaluaciones.mapa_tecnico') }}}">Subir Mapa Técnico</a></li>
-                                        <li><a href="{{{ URL::to('evaluaciones') }}}">Generar Cadena de Respuestas (Key)</a></li>
-                                        <li><a href="{{{ URL::to('evaluaciones') }}}">Descargar Key a Excel</a></li>
                                     </ul>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle text-white"  data-toggle="dropdown">Calificación<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{{ URL::to('calificacion') }}}">Generar Respuestas</a></li>
-                                        <li><a href="{{{ URL::to('calificacion') }}}">Cargar Archivo Senescyt</a></li>
-                                        <li><a href="{{{ URL::to('calificacion') }}}">Comparar Respuestas</a></li>
-                                        <li><a href="{{{ URL::to('calificacion') }}}">Cálculo Totales e Indice INEVAL</a></li>                                        
+                                        <li><a href="{{{ URL::to('calificacion') }}}">Subir Respuestas</a></li>
+                                        <li><a href="{{{ URL::to('calificacion') }}}">Cargar Archivo Externo</a></li>
+                                        <li><a href="{{{ URL::to('calificacion') }}}">Calificar</a></li>                                                                                
                                     </ul>
                             </li>
                             <li class="dropdown">

@@ -6,27 +6,33 @@ public function run()
         DB::table('codigos_evaluaciones')->delete();
 
         CodigosEvaluaciones::create(array(
-            'nombre'  => 'ENES'
+            'nombre'  => 'ENES',
+            'mapa_tecnico' => 'enes_mapastecnicos'
         ));
 
         CodigosEvaluaciones::create(array(
-            'nombre'  => 'Quiero Ser Maestro - Razonamiento'
+            'nombre'  => 'Quiero Ser Maestro - Razonamiento',
+            'mapa_tecnico' => 'raz_mapastecnicos'
         ));
 
          CodigosEvaluaciones::create(array(
-            'nombre'  => 'Quiero Ser Maestro - Saberes Específicos'
+            'nombre'  => 'Quiero Ser Maestro - Saberes Específicos',
+            'mapa_tecnico' => 'sesp_mapastecnicos'
         ));
 
         CodigosEvaluaciones::create(array(
-            'nombre'  => 'Ser Bachiller'
+            'nombre'  => 'Ser Bachiller',
+            'mapa_tecnico' => 'sbac_mapastecnicos'
         ));
 
         CodigosEvaluaciones::create(array(
-            'nombre'  => 'Ser Estudiante'
+            'nombre'  => 'Ser Estudiante',
+            'mapa_tecnico' => 'sest_mapastecnicos'
         ));
 
         CodigosEvaluaciones::create(array(
-            'nombre'  => 'Ser Estudiante en la Mitad del Mundo'            
+            'nombre'  => 'Ser Estudiante en la Mitad del Mundo',
+            'mapa_tecnico' => 'smm_mapastecnicos'
         ));       
     }
 }

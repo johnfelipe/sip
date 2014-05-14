@@ -38,6 +38,9 @@ Route::get('evaluaciones/borrar/{id}', array('uses'=>'EvaluacionesController@eli
 Route::get('evaluaciones.mapa_tecnico', array('uses' => 'EvaluacionesController@mapaTecnico'));
 Route::post('evaluaciones.mapa_tecnico', array('uses' => 'EvaluacionesController@subirMapaTecnico'));
 
+Route::get('evaluaciones/generar_mapa_tecnico/{id}', array('uses'=>'EvaluacionesController@generarKey'));
+Route::get('evaluaciones/descargar_mapa_tecnico/{id}', array('uses'=>'EvaluacionesController@descargarKey'));
+
 /*
 Route::get('/', function()
 {

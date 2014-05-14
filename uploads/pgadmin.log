@@ -1,0 +1,801 @@
+2014-04-14 09:38:09 ERROR  : Error connecting to the server: FATAL:  no hay una línea en pg_hba.conf para «192.168.130.67», usuario «postgres», base de datos «postgres», SSL inactivo
+
+2014-04-14 09:38:40 ERROR  : Error connecting to the server: FATAL:  no hay una línea en pg_hba.conf para «192.168.130.67», usuario «postgres», base de datos «postgres», SSL inactivo
+
+2014-04-14 09:41:45 ERROR  : Error connecting to the server: fe_sendauth: no password supplied
+
+2014-04-14 09:42:30 ERROR  : Error connecting to the server: fe_sendauth: no password supplied
+
+2014-04-14 09:42:43 ERROR  : Error connecting to the server: FATAL:  la autentificación password falló para el usuario «sa»
+
+2014-04-14 09:42:54 ERROR  : Error connecting to the server: FATAL:  la autentificación password falló para el usuario «postgres»
+
+2014-04-14 09:43:04 ERROR  : Error connecting to the server: fe_sendauth: no password supplied
+
+2014-04-14 09:43:42 ERROR  : Error connecting to the server: FATAL:  la autentificación password falló para el usuario «postgres»
+
+2014-04-14 09:49:58 ERROR  : ERROR:  debe ser dueño de la base de datos test
+2014-04-14 09:52:02 ERROR  : ERROR:  permiso denegado a la relación users
+2014-04-14 09:53:01 ERROR  : ERROR:  debe ser dueño de la relación users
+2014-04-14 10:52:29 ERROR  : ERROR:  permiso denegado a la relación users
+2014-04-14 12:48:18 ERROR  : ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0x00
+CONTEXT:  COPY users, línea 1
+2014-04-14 12:48:22 ERROR  : Copy failed!
+
+2014-04-15 15:54:42 ERROR  : ERROR:  error de sintaxis en o cerca de «SERIAL»
+LINE 2:  id integer SERIAL,
+                    ^
+2014-04-15 15:55:29 ERROR  : ERROR:  error de sintaxis en o cerca de «(»
+LINE 706: CONSTRAINT versiones_pkey PRIMARY KEY (idVersion)
+                                                ^
+2014-04-15 16:35:15 ERROR  : ERROR:  faltan datos en la columna «dictamen»
+CONTEXT:  COPY dificultadtct, línea 1: «0,10,Descartado»
+2014-04-15 16:35:19 ERROR  : Copy failed!
+
+2014-04-15 16:36:57 ERROR  : ERROR:  faltan datos en la columna «inf»
+CONTEXT:  COPY dificultadtri, línea 1: «-50,-3,Descartado»
+2014-04-15 16:36:59 ERROR  : Copy failed!
+
+2014-04-15 16:37:53 ERROR  : ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xed 0x6d 0x2e
+CONTEXT:  COPY dificultadtct, línea 2
+2014-04-15 16:38:00 ERROR  : Copy failed!
+
+2014-04-15 16:48:58 ERROR  : ERROR:  datos extra después de la última columna esperada
+CONTEXT:  COPY dificultadtri, línea 2: «-3,-2,5,Util,1,0»
+2014-04-15 16:49:00 ERROR  : Copy failed!
+
+2014-04-15 16:49:22 ERROR  : ERROR:  datos extra después de la última columna esperada
+CONTEXT:  COPY dificultadtri, línea 2: «-3,-2,5,Util,1,0»
+2014-04-15 16:49:27 ERROR  : Copy failed!
+
+2014-04-15 16:54:53 ERROR  : ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xf3 0x6e 0x20 0x53
+CONTEXT:  COPY evaluaciones, línea 1
+2014-04-15 16:54:59 ERROR  : Copy failed!
+
+2014-04-15 16:55:46 ERROR  : ERROR:  llave duplicada viola restricción de unicidad «evaluaciones_pkey»
+DETAIL:  Ya existe la llave (idevaluacion)=(1).
+CONTEXT:  COPY evaluaciones, línea 1
+2014-04-15 16:55:52 ERROR  : Copy failed!
+
+2014-04-15 16:59:12 ERROR  : ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xe1 0x73 0x69
+CONTEXT:  COPY niveles, línea 1
+2014-04-15 16:59:14 ERROR  : Copy failed!
+
+2014-04-15 17:01:23 ERROR  : ERROR:  error de sintaxis en o cerca de «<»
+LINE 2:  WHERE <condition>;
+               ^
+2014-04-16 08:39:18 ERROR  : ERROR:  faltan datos en la columna «nivel»
+CONTEXT:  COPY enes_mapatecnico, línea 1: «»
+2014-04-16 08:39:22 ERROR  : Copy failed!
+
+2014-04-16 08:46:43 ERROR  : ERROR:  faltan datos en la columna «nivel»
+CONTEXT:  COPY mm_mapatecnico, línea 1: «»
+2014-04-16 08:46:45 ERROR  : Copy failed!
+
+2014-04-16 08:46:47 ERROR  : ERROR:  faltan datos en la columna «nivel»
+CONTEXT:  COPY mm_mapatecnico, línea 1: «»
+2014-04-16 08:46:48 ERROR  : Copy failed!
+
+2014-04-16 10:16:11 ERROR  : ERROR:  error de sintaxis en o cerca de «#»
+LINE 4:  #TRIED integer,
+         ^
+2014-04-16 10:16:21 ERROR  : ERROR:  error de sintaxis en o cerca de «RIGHT»
+LINE 5:  RIGHT float,
+         ^
+2014-04-16 10:28:53 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «1;6343;242946;82026;33»
+CONTEXT:  COPY enes_1_ist, línea 1, columna item: «1;6343;242946;82026;33»
+2014-04-16 10:29:21 ERROR  : Copy failed!
+
+2014-04-16 10:30:01 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «1;6343;242946;82026;33.80;0.67;0.39;0.51;»
+CONTEXT:  COPY enes_1_ist, línea 1, columna item: «1;6343;242946;82026;33.80;0.67;0.39;0.51;»
+2014-04-16 10:30:05 ERROR  : Copy failed!
+
+2014-04-16 10:30:12 ERROR  : ERROR:  datos extra después de la última columna esperada
+CONTEXT:  COPY enes_1_ist, línea 1: «1;6343;242946;82026;33.80;0.67;0.39;0.51;»
+2014-04-16 10:30:24 ERROR  : Copy failed!
+
+2014-04-16 10:32:10 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «1;6343;242946;82026;33»
+CONTEXT:  COPY enes_1_ist, línea 1, columna item: «1;6343;242946;82026;33»
+2014-04-16 10:32:14 ERROR  : Copy failed!
+
+2014-04-16 10:32:31 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «1;6343;242946;82026;33.80;0.67;0.39;0.51»
+CONTEXT:  COPY enes_1_ist, línea 1, columna item: «1;6343;242946;82026;33.80;0.67;0.39;0.51»
+2014-04-16 10:32:32 ERROR  : Copy failed!
+
+2014-04-16 10:32:34 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «1;6343;242946;82026;33.80;0.67;0.39;0.51»
+CONTEXT:  COPY enes_1_ist, línea 1, columna item: «1;6343;242946;82026;33.80;0.67;0.39;0.51»
+2014-04-16 10:32:42 ERROR  : Copy failed!
+
+2014-04-16 10:34:14 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «ITEM»
+CONTEXT:  COPY enes_1_par, línea 1, columna item: «ITEM»
+2014-04-16 10:34:20 ERROR  : Copy failed!
+
+2014-04-16 10:35:48 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «ITEM»
+CONTEXT:  COPY enes_1_par, línea 1, columna item: «ITEM»
+2014-04-16 10:35:50 ERROR  : Copy failed!
+
+2014-04-16 12:32:41 ERROR  : ERROR:  no existe la relación «enes_respestas»
+LINE 1: select * from enes_respestas where forma='00'
+                      ^
+2014-04-16 14:29:32 ERROR  : ERROR:  error de sintaxis en o cerca de «1»
+LINE 1: SELECT TOP 1 * FROM evaluaciones  
+                   ^
+2014-04-16 15:20:08 ERROR  : ERROR:  no existe la relación «resultadostemp»
+LINE 1: UPDATE resultadostemp SET posicion=0 WHERE respuesta<>correc...
+               ^
+2014-04-16 15:23:37 ERROR  : ERROR:  no existe la relación «enes_evaluaciones»
+LINE 1: select * from enes_evaluaciones where forma='00'
+                      ^
+2014-04-16 15:28:29 ERROR  : ERROR:  no existe la relación «resultadotemp»
+LINE 1: select * from resultadotemp
+                      ^
+2014-04-16 15:30:07 ERROR  : ERROR:  error de sintaxis en o cerca de «integer»
+LINE 1: ALTER TABLE enes_respuestas ALTER COLUMN p1 integer
+                                                    ^
+2014-04-16 15:32:57 ERROR  : ERROR:  la columna «p1» no puede convertirse automáticamente al tipo integer
+HINT:  Especifique una expresión USING para llevar a cabo la conversión.
+2014-04-16 16:46:00 ERROR  : ERROR:  no existe la relación «foo»
+LINE 1: INSERT INTO foo(id, name) VALUES(DEFAULT, 'bob') RETURNING i...
+                    ^
+2014-04-16 16:46:55 ERROR  : ERROR:  no existe la columna «id»
+LINE 1: ...ERT INTO dificultadtct VALUES(0,0,'0','0',0,0) RETURNING id;
+                                                                    ^
+2014-04-17 08:23:47 ERROR  : Error connecting to the server: FATAL:  no hay una línea en pg_hba.conf para «192.168.120.40», usuario «sa», base de datos «postgres», SSL inactivo
+
+2014-04-17 08:29:18 ERROR  : ERROR:  error de sintaxis en o cerca de «integer»
+LINE 1: ALTER TABLE enes_respuestas ALTER COLUMN p1 integer
+                                                    ^
+2014-04-17 08:29:35 ERROR  : ERROR:  la columna «p1» no puede convertirse automáticamente al tipo integer
+HINT:  Especifique una expresión USING para llevar a cabo la conversión.
+2014-04-17 08:35:07 ERROR  : ERROR:  no existe la relación «enes_respuestas»
+LINE 3: from enes_respuestas
+             ^
+2014-04-17 08:40:00 ERROR  : FATAL:  terminando la conexión debido a una orden del administrador
+FATAL:  terminando la conexión debido a una orden del administrador
+2014-04-17 08:47:23 ERROR  : ERROR:  error de sintaxis en o cerca de «using»
+LINE 1: ...LTER TABLE enes_respuestas55 ALTER COLUMN p1 type using p1::...
+                                                             ^
+2014-04-17 09:17:37 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-04-17 09:45:59 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-04-17 10:01:58 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-04-17 10:14:05 ERROR  : ERROR:  no existe la función len(character varying)
+LINE 1: select * from enes_respuestasbk where len(clip)=9
+                                              ^
+HINT:  Ninguna función coincide en el nombre y tipos de argumentos. Puede ser necesario agregar conversión explícita de tipos.
+2014-04-17 10:14:11 ERROR  : ERROR:  no existe la función lenght(character varying)
+LINE 1: select * from enes_respuestasbk where lenght(clip)=9
+                                              ^
+HINT:  Ninguna función coincide en el nombre y tipos de argumentos. Puede ser necesario agregar conversión explícita de tipos.
+2014-04-17 10:26:22 ERROR  : ERROR:  no existe la relación «enes_respuestas»
+LINE 1: update enes_respuestas set version=2 where forma in (56,58,6...
+               ^
+2014-04-17 10:28:05 ERROR  : ERROR:  el operador no existe: unknown + character varying
+LINE 1: update enes_respuestas set clip='0'+clip where len(clip)=9
+                                           ^
+HINT:  Ningún operador coincide con el nombre y el tipo de los argumentos. Puede ser necesario agregar conversiones explícitas de tipos.
+2014-04-17 10:28:12 ERROR  : ERROR:  error de sintaxis en o cerca de «.»
+LINE 1: update enes_respuestas set clip='0'.clip where len(clip)=9
+                                           ^
+2014-04-17 10:31:08 ERROR  : ERROR:  no existe la función len(character varying)
+LINE 1: update enes_respuestas set clip='0'||clip where len(clip)=9
+                                                        ^
+HINT:  Ninguna función coincide en el nombre y tipos de argumentos. Puede ser necesario agregar conversión explícita de tipos.
+2014-04-17 11:03:28 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-04-17 11:03:37 ERROR  : Column not found in pgSet: "datlastsysoid"
+2014-04-17 11:03:38 ERROR  : Column not found in pgSet: datlastsysoid
+2014-04-17 11:03:39 ERROR  : Column not found in pgSet: oid
+2014-04-17 11:03:39 ERROR  : Column not found in pgSet: encoding
+2014-04-17 11:03:39 ERROR  : Connection to database broken.
+2014-04-17 11:04:38 ERROR  : FATAL:  terminando la conexión debido a una orden del administrador
+FATAL:  terminando la conexión debido a una orden del administrador
+2014-04-17 11:06:29 ERROR  : ERROR:  error de sintaxis en o cerca de «delete»
+LINE 3: delete from enes_respuestas where forma not in (56,58,59)
+        ^
+2014-04-17 11:06:38 ERROR  : ERROR:  error de sintaxis en o cerca de «*»
+LINE 1: delete * from enes_respuestas where forma not in (56,58,59)
+               ^
+2014-04-17 11:06:47 ERROR  : ERROR:  error de sintaxis en o cerca de «delete»
+LINE 3: delete from enes_respuestas where forma not in (56,58,59)
+        ^
+2014-04-17 11:14:39 ERROR  : FATAL:  terminando la conexión debido a una orden del administrador
+FATAL:  terminando la conexión debido a una orden del administrador
+2014-04-17 11:52:20 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-04-17 12:44:31 ERROR  : ERROR:  error de sintaxis en o cerca de «1»
+LINE 1: select top 1 *
+                   ^
+2014-04-17 12:44:49 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-04-17 12:52:04 ERROR  : ERROR:  error de sintaxis en o cerca de «where»
+LINE 2: where clip='125131206' AND nivel=1
+        ^
+2014-04-17 16:15:29 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-04-17 16:45:42 ERROR  : ERROR:  no existe la columna «inessinpiloto»
+LINE 1: select * from enes_respuestas where inessinpiloto is not nul...
+                                            ^
+2014-04-17 16:59:27 ERROR  : ERROR:  no existe la columna «inevsinpoloto» en la relación «enes_respuestas»
+LINE 1: update enes_respuestas set inevsinpoloto=0
+                                   ^
+2014-04-17 17:08:42 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-04-17 17:22:27 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «55;1;p2;p3;p4;p5;p6;p7;p8;p9;p10;p11;p12;p13;p14;p15;p16;p17;p18;p19;p20;p21;p22;p23;p24;p25;p26;p27;p28;p29;p30;p31;p32;p33;p34;p35;p36;p38»
+CONTEXT:  COPY nuevos, línea 1, columna forma: «55;1;p2;p3;p4;p5;p6;p7;p8;p9;p10;p11;p12;p13;p14;p15;p16;p17;p18;p19;p20;p21;p22;p23;p24;p25;p26;p27...»
+2014-04-17 17:22:31 ERROR  : Copy failed!
+
+2014-04-17 17:23:47 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «55;1;p2;p3;p4;p5;p6;p7;p8;p9;p10;p11;p12;p13;p14;p15;p16;p17;p18;p19;p20;p21;p22;p23;p24;p25;p26;p27;p28;p29;p30;p31;p32;p33;p34;p35;p36;p38»
+CONTEXT:  COPY nuevos, línea 1, columna forma: «55;1;p2;p3;p4;p5;p6;p7;p8;p9;p10;p11;p12;p13;p14;p15;p16;p17;p18;p19;p20;p21;p22;p23;p24;p25;p26;p27...»
+2014-04-17 17:23:50 ERROR  : Copy failed!
+
+2014-04-17 17:25:14 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;38»
+CONTEXT:  COPY niveles, línea 1, columna idnivel: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;3...»
+2014-04-17 17:25:21 ERROR  : Copy failed!
+
+2014-04-17 17:25:40 ERROR  : ERROR:  datos extra después de la última columna esperada
+CONTEXT:  COPY niveles, línea 1: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;3...»
+2014-04-17 17:25:43 ERROR  : Copy failed!
+
+2014-04-17 17:26:20 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;38»
+CONTEXT:  COPY nuevos, línea 1, columna forma: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;3...»
+2014-04-17 17:26:21 ERROR  : Copy failed!
+
+2014-04-17 17:26:26 ERROR  : ERROR:  faltan datos en la columna «p37»
+CONTEXT:  COPY nuevos, línea 1: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;3...»
+2014-04-17 17:26:33 ERROR  : Copy failed!
+
+2014-04-17 17:27:32 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;38»
+CONTEXT:  COPY nuevos, línea 1, columna forma: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;3...»
+2014-04-17 17:27:33 ERROR  : Copy failed!
+
+2014-04-17 17:27:40 ERROR  : ERROR:  faltan datos en la columna «p37»
+CONTEXT:  COPY nuevos, línea 1: «55;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;3...»
+2014-04-17 17:27:41 ERROR  : Copy failed!
+
+2014-04-17 17:41:47 ERROR  : ERROR:  no existe la relación «enes_resultados»
+LINE 1: UPDATE enes_resultados set totalrvsinpiloto=p2+p3+p4+p5+p6+p...
+               ^
+2014-04-21 08:30:24 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «55;2;41;42;43;44;45;46;47;48;49;50;51;52;53;54;55;56;57;58;59;60;61;62;63;64;65;66;67;68;69;70;71;72;73;74;75;76»
+CONTEXT:  COPY nuevos, línea 1, columna forma: «55;2;41;42;43;44;45;46;47;48;49;50;51;52;53;54;55;56;57;58;59;60;61;62;63;64;65;66;67;68;69;70;71;72...»
+2014-04-21 08:30:36 ERROR  : Copy failed!
+
+2014-04-21 09:02:22 ERROR  : ERROR:  faltan datos en la columna «forma»
+CONTEXT:  COPY forma0, línea 1: «0228200906;1»
+2014-04-21 09:02:25 ERROR  : Copy failed!
+
+2014-04-21 09:05:01 ERROR  : ERROR:  no existe la relación «formas0»
+LINE 1: select dictinct forma from formas0
+                                   ^
+2014-04-21 09:05:04 ERROR  : ERROR:  no existe la columna «dictinct»
+LINE 1: select dictinct forma from forma0
+               ^
+2014-04-21 09:07:11 ERROR  : ERROR:  no existe la relación «formas0»
+LINE 1: select * from formas0
+                      ^
+2014-04-21 09:07:26 ERROR  : ERROR:  no existe la relación «enes_respuestas0»
+LINE 1: select * from enes_respuestas0
+                      ^
+2014-04-21 09:07:26 ERROR  : ERROR:  no existe la relación «enes_respuestas0»
+LINE 1: select * from enes_respuestas0
+                      ^
+2014-04-21 09:08:59 ERROR  : ERROR:  error de sintaxis en o cerca de «enes_respuestassf»
+LINE 4: update enes_respuestassf set forma=forma0.forma 
+               ^
+2014-04-21 09:12:03 ERROR  : ERROR:  no existe la columna «00»
+LINE 4: where forma="00"
+                    ^
+2014-04-21 09:20:40 ERROR  : ERROR:  la relación «enes_respuestas» ya existe
+2014-04-21 09:37:09 ERROR  : ERROR:  error de sintaxis en o cerca de «=»
+LINE 1: update enes_respuestas totalconpiloto=totalrvconpiloto+total...
+                                             ^
+2014-04-21 10:05:31 ERROR  : ERROR:  error de sintaxis en o cerca de «as»
+LINE 1: SELECT * as total FROM INFORMATION_SCHEMA.COLUMNS WHERE TABL...
+                 ^
+2014-04-21 10:14:53 ERROR  : ERROR:  error de sintaxis en o cerca de «as»
+LINE 1:  SELECT * as total FROM INFORMATION_SCHEMA.COLUMNS WHERE TAB...
+                  ^
+2014-04-21 10:26:28 ERROR  : ERROR:  error de sintaxis en o cerca de «SELECT»
+LINE 3: SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TAB...
+        ^
+2014-04-21 10:39:52 ERROR  : ERROR:  la referencia a la columna «clip» es ambigua
+LINE 2: FROM enes_respuestas WHERE clip='0111599606' AND forma=72
+                                   ^
+2014-04-21 10:40:36 ERROR  : ERROR:  el nombre de tabla «enes_respuestas» fue especificado más de una vez
+2014-04-21 10:41:00 ERROR  : ERROR:  la referencia a la columna «forma» es ambigua
+LINE 2: ...puestas WHERE enes_respuestas.clip='0111599606' AND forma=72
+                                                               ^
+2014-04-21 11:13:20 ERROR  : ERROR:  no existe la columna «forma»
+LINE 1: select * from enes_mapatecnico where forma=58
+                                             ^
+2014-04-21 11:29:41 ERROR  : ERROR:  un identificador delimitado tiene largo cero en o cerca de «""»
+LINE 1: select * from "enes_1_rv" where clip=""0205075906""
+                                             ^
+2014-04-21 11:29:48 ERROR  : ERROR:  no existe la columna «0205075906»
+LINE 1: select * from "enes_1_rv" where clip="0205075906"
+                                             ^
+2014-04-21 11:55:55 ERROR  : ERROR:  no existe la columna «totalsinpilotos»
+LINE 1: select * from enes_respuestas where totalsinpilotos=400
+                                            ^
+2014-04-21 11:57:42 ERROR  : ERROR:  error de sintaxis en o cerca de «n»
+LINE 1: ...elect * from enes_respuestas where inevsinpiloto=400e45n*807
+                                                                  ^
+2014-04-21 11:57:43 ERROR  : ERROR:  no existe la columna «n»
+LINE 1: ...rom enes_respuestas where inevsinpiloto=400e456+2-5*9/n*8076
+                                                                 ^
+2014-04-21 12:22:32 ERROR  : ERROR:  error de sintaxis en o cerca de «$»
+LINE 1: ...ampo FROM razonamientos_mapatecnico WHERE nivel = $nivel GRO...
+                                                             ^
+2014-04-21 12:28:30 ERROR  : ERROR:  la columna «iditem» es de tipo integer pero la expresión es de tipo character varying
+LINE 1: INSERT INTO temp SELECT iditem, funcion, nivel, idcampo FROM...
+                                        ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+2014-04-21 12:30:08 ERROR  : ERROR:  la columna «iditem» es de tipo integer pero la expresión es de tipo character varying
+LINE 1: INSERT INTO temp SELECT iditem, funcion, nivel, idcampo FROM...
+                                        ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+2014-04-21 12:31:58 ERROR  : ERROR:  la columna «iditem» es de tipo integer pero la expresión es de tipo character varying
+LINE 1: INSERT INTO temp SELECT iditem, funcion, nivel, idcampo FROM...
+                                        ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+2014-04-21 12:32:26 ERROR  : ERROR:  no existe la columna «integer»
+LINE 1: INSERT INTO temp SELECT (integer)iditem, funcion, nivel, idc...
+                                 ^
+2014-04-21 12:32:34 ERROR  : ERROR:  no existe la columna «int»
+LINE 1: INSERT INTO temp SELECT (int)iditem, funcion, nivel, idcampo...
+                                 ^
+2014-04-21 12:33:48 ERROR  : ERROR:  no existe la función convert_to_integer(integer)
+LINE 1: INSERT INTO temp SELECT convert_to_integer(iditem), funcion,...
+                                ^
+HINT:  Ninguna función coincide en el nombre y tipos de argumentos. Puede ser necesario agregar conversión explícita de tipos.
+2014-04-21 12:34:00 ERROR  : ERROR:  la columna «iditem» es de tipo integer pero la expresión es de tipo character varying
+LINE 1: INSERT INTO temp SELECT iditem::integer, funcion, nivel, idc...
+                                                 ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+2014-04-21 12:52:45 ERROR  : ERROR:  error de sintaxis en o cerca de «[»
+LINE 1: ...iontri,dificultadtri) SELECT '2','1',item,subtest,[discrimin...
+                                                             ^
+2014-04-21 12:52:56 ERROR  : ERROR:  error de sintaxis en o cerca de «a»
+LINE 1: ...dtri) SELECT '2','1',item,subtest,(discriminacion a),[dificu...
+                                                             ^
+2014-04-21 12:53:04 ERROR  : ERROR:  error de sintaxis en o cerca de «a»
+LINE 1: ...dtri) SELECT '2','1',item,subtest,(discriminacion a),(dificu...
+                                                             ^
+2014-04-21 12:53:04 ERROR  : ERROR:  error de sintaxis en o cerca de «a»
+LINE 1: ...dtri) SELECT '2','1',item,subtest,(discriminacion a),(dificu...
+                                                             ^
+2014-04-21 12:53:04 ERROR  : ERROR:  error de sintaxis en o cerca de «a»
+LINE 1: ...dtri) SELECT '2','1',item,subtest,(discriminacion a),(dificu...
+                                                             ^
+2014-04-21 12:53:04 ERROR  : ERROR:  error de sintaxis en o cerca de «a»
+LINE 1: ...dtri) SELECT '2','1',item,subtest,(discriminacion a),(dificu...
+                                                             ^
+2014-04-21 12:54:11 ERROR  : ERROR:  error de sintaxis en o cerca de «#»
+LINE 1: ...raciones SET calibraciones.poblacion = ENES_1_ist.#tried FRO...
+                                                             ^
+2014-04-21 12:54:15 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:54:18 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:54:19 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:54:19 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:54:19 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:54:36 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:54:37 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:55:08 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:57:29 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 12:58:22 ERROR  : ERROR:  no existe la columna «calibraciones» en la relación «calibraciones»
+LINE 1: UPDATE calibraciones SET calibraciones.poblacion = ENES_1_is...
+                                 ^
+2014-04-21 13:00:27 ERROR  : ERROR:  error de sintaxis en o cerca de «UPDATE»
+LINE 3: UPDATE calibraciones SET poblacion = ENES_1_ist.#tried FROM ...
+        ^
+2014-04-21 13:00:30 ERROR  : ERROR:  error de sintaxis en o cerca de «#»
+LINE 1: UPDATE calibraciones SET poblacion = ENES_1_ist.#tried FROM ...
+                                                        ^
+2014-04-21 13:00:30 ERROR  : ERROR:  error de sintaxis en o cerca de «UPDATE»
+LINE 3: UPDATE calibraciones SET poblacion = ENES_1_ist.#tried FROM ...
+        ^
+2014-04-21 13:02:36 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 13:02:42 ERROR  : ERROR:  el nombre de tabla «calibraciones» fue especificado más de una vez
+2014-04-21 13:06:37 ERROR  : ERROR:  error de sintaxis en o cerca de «*»
+LINE 1: delete * from calibraciones
+               ^
+2014-04-22 09:41:20 ERROR  : ERROR:  la columna «enes_1_rv.forma» debe aparecer en la cláusula GROUP BY o ser usada en una función de agregación
+LINE 1: select * from enes_1_rv, enes_1_rn,enes_1_ra group by enes_1...
+               ^
+2014-04-22 09:41:37 ERROR  : ERROR:  la columna «enes_1_rv.forma» debe aparecer en la cláusula GROUP BY o ser usada en una función de agregación
+LINE 1: select * from enes_1_rv, enes_1_rn,enes_1_ra group by enes_1...
+               ^
+2014-04-22 09:41:39 ERROR  : ERROR:  la columna «enes_1_rv.forma» debe aparecer en la cláusula GROUP BY o ser usada en una función de agregación
+LINE 1: select * from enes_1_rv, enes_1_rn,enes_1_ra group by enes_1...
+               ^
+2014-04-22 09:41:39 ERROR  : ERROR:  la columna «enes_1_rv.forma» debe aparecer en la cláusula GROUP BY o ser usada en una función de agregación
+LINE 1: select * from enes_1_rv, enes_1_rn,enes_1_ra group by enes_1...
+               ^
+2014-04-23 10:56:59 ERROR  : ERROR:  el valor null para la columna «id» viola la restricción not null
+DETAIL:  La fila que falla contiene (null, Administrador, Acceso total a todo el sistema).
+2014-04-23 10:57:53 ERROR  : ERROR:  no se puede eliminar tabla roles porque otros objetos dependen de él
+DETAIL:  restricción «usuarios_id_rol_fkey» en tabla usuarios depende de tabla roles
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-04-23 11:08:19 ERROR  : ERROR:  el valor es demasiado largo para el tipo character varying(20)
+2014-04-23 11:35:23 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 2:   RENAME TO ;
+                    ^
+2014-04-23 11:35:24 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 2:   RENAME TO ;
+                    ^
+2014-04-23 17:25:36 ERROR  : FATAL:  terminando la conexión debido a una orden del administrador
+FATAL:  terminando la conexión debido a una orden del administrador
+2014-04-23 17:25:36 ERROR  : FATAL:  terminando la conexión debido a una orden del administrador
+2014-04-23 17:35:58 ERROR  : ERROR:  error de sintaxis en o cerca de «select»
+LINE 4: select * from enes_comparacion where clip='0128075406'
+        ^
+2014-04-24 09:07:49 ERROR  : ERROR:  no existe la relación «enes_comparaciones»
+LINE 1: select * from enes_comparaciones
+                      ^
+2014-04-25 09:40:09 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «EVALUACION»
+CONTEXT:  COPY respuestas, línea 1, columna idevaluacion: «EVALUACION»
+2014-04-25 09:40:15 ERROR  : Copy failed!
+
+2014-04-25 09:46:49 ERROR  : ERROR:  la relación «mm_respuestasbk» ya existe
+2014-04-25 09:53:30 ERROR  : ERROR:  no existe la columna «clip» en la relación «respuestas»
+2014-04-25 09:57:10 ERROR  : ERROR:  no existe la columna «clip»
+LINE 1: select clip,acierto from respuestas
+               ^
+2014-04-25 09:57:37 ERROR  : ERROR:  no existe la columna «acierto»
+LINE 1: select cgi_usuario_id, acierto from respuestas
+                               ^
+2014-04-25 09:57:43 ERROR  : ERROR:  la columna «respuestas.aciertos» debe aparecer en la cláusula GROUP BY o ser usada en una función de agregación
+LINE 1: select cgi_usuario_id, aciertos from respuestas
+                               ^
+2014-04-25 09:59:23 ERROR  : ERROR:  la columna «mm_respuestas.totalsinpiloto» debe aparecer en la cláusula GROUP BY o ser usada en una función de agregación
+LINE 1: select clip, totalsinpiloto, aciertos
+                     ^
+2014-04-25 10:03:59 ERROR  : ERROR:  el operador no existe: character varying = integer
+LINE 1: select * from mm_respuestas where clip=45471
+                                              ^
+HINT:  Ningún operador coincide con el nombre y el tipo de los argumentos. Puede ser necesario agregar conversiones explícitas de tipos.
+2014-04-25 10:26:42 ERROR  : ERROR:  el operador no existe: character varying = integer
+LINE 1: select * from mm_respuestas where clip=356
+                                              ^
+HINT:  Ningún operador coincide con el nombre y el tipo de los argumentos. Puede ser necesario agregar conversiones explícitas de tipos.
+2014-04-25 10:28:39 ERROR  : can't open file 'C:\Users\Server\Documents\Evaluaciones\Mitad del Mundo 03-2014\original.csv' (error 32: el proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso.)
+2014-04-25 10:28:40 ERROR  : Failed to open file C:\Users\Server\Documents\Evaluaciones\Mitad del Mundo 03-2014\original.csv.
+2014-04-25 10:38:47 ERROR  : ERROR:  la referencia a la columna «nivel» es ambigua
+LINE 1: select clip, nivel, forma, totalsinpiloto, aciertos
+                     ^
+2014-04-25 10:38:52 ERROR  : ERROR:  la referencia a la columna «nivel» es ambigua
+LINE 1: select clip, nivel, forma, totalsinpiloto, aciertos
+                     ^
+2014-04-25 14:12:08 ERROR  : ERROR:  la relación «mm_1_ist» ya existe
+2014-04-25 14:14:43 ERROR  : ERROR:  datos extra después de la última columna esperada
+CONTEXT:  COPY mm_1_ist, línea 1: «NIVEL;ITEM;NAME;#TRIED;#RIGHT;PCT;LOGIT;PEARSON;BISERIAL;»
+2014-04-25 14:14:44 ERROR  : Copy failed!
+
+2014-04-25 14:30:03 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «61,00»
+CONTEXT:  COPY mm_1_ist, línea 1, columna tried: «61,00»
+2014-04-25 14:30:05 ERROR  : Copy failed!
+
+2014-04-25 14:30:23 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «61,00»
+CONTEXT:  COPY mm_1_ist, línea 1, columna tried: «61,00»
+2014-04-25 14:30:28 ERROR  : Copy failed!
+
+2014-04-25 14:31:53 ERROR  : ERROR:  la sintaxis de entrada no es válida para tipo double precision: «39,30»
+CONTEXT:  COPY mm_1_ist, línea 1, columna pct: «39,30»
+2014-04-25 14:31:57 ERROR  : Copy failed!
+
+2014-04-25 14:32:50 ERROR  : ERROR:  la sintaxis de entrada no es válida para tipo double precision: «1,337»
+CONTEXT:  COPY mm_1_par, línea 1, columna discriminacion_a: «1,337»
+2014-04-25 14:33:02 ERROR  : Copy failed!
+
+2014-04-25 14:44:47 ERROR  : ERROR:  no existe la columna «dictamentcttri»
+LINE 1: ...ect * from calibraciones where idevaluacion=1 and dictamentc...
+                                                             ^
+2014-04-25 15:01:04 ERROR  : ERROR:  la sintaxis de entrada no es válida para tipo double precision: «18,00»
+CONTEXT:  COPY mm_1_ist, línea 23, columna pct: «18,00»
+2014-04-25 15:01:13 ERROR  : Copy failed!
+
+2014-04-25 15:07:30 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «1.00»
+CONTEXT:  COPY mm_1_ist, línea 256, columna item: «1.00»
+2014-04-25 15:07:34 ERROR  : Copy failed!
+
+2014-04-25 15:11:52 ERROR  : ERROR:  la sintaxis de entrada no es válida para tipo double precision: «18,00»
+CONTEXT:  COPY mm_1_ist, línea 23, columna pct: «18,00»
+2014-04-25 15:11:57 ERROR  : Copy failed!
+
+2014-04-25 15:13:34 ERROR  : ERROR:  la sintaxis de entrada no es válida para tipo double precision: «18,00»
+CONTEXT:  COPY mm_1_ist, línea 23, columna pct: «18,00»
+2014-04-25 15:13:38 ERROR  : Copy failed!
+
+2014-04-25 15:48:36 ERROR  : ERROR:  la columna «mm_respuestas.inevsinpiloto» debe aparecer en la cláusula GROUP BY o ser usada en una función de agregación
+LINE 1: ...stas.nivel,  mm_respuestas.forma, totalsinpiloto, inevsinpil...
+                                                             ^
+2014-04-25 15:56:26 ERROR  : ERROR:  error de sintaxis en o cerca de «mm_respuestas»
+LINE 1:   mm_respuestas.forma,totalsinpiloto,inevsinpiloto, aciertos...
+          ^
+2014-04-28 08:30:54 ERROR  : ERROR:  no existe la relación «calibracione»
+LINE 1: select * from calibracione where iditem=7623
+                      ^
+2014-04-28 08:55:04 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «NIVEL»
+CONTEXT:  COPY mm_ist, línea 1, columna nivel: «NIVEL»
+2014-04-28 08:55:06 ERROR  : Copy failed!
+
+2014-04-28 08:57:18 ERROR  : ERROR:  error de sintaxis en o cerca de «bynivel»
+LINE 1: ...t * from calibraciones where idevaluacion=1 order bynivel, i...
+                                                             ^
+2014-04-28 09:20:37 ERROR  : ERROR:  no existe la relación «calibracione»
+LINE 1: select * from calibracione where idevaluacion=1 order by niv...
+                      ^
+2014-04-29 16:38:39 ERROR  : ERROR:  se ha denegado el permiso para crear la base de datos
+2014-04-30 09:28:49 ERROR  : ERROR:  se ha denegado el permiso para cambiar el nombre a la base de datos
+2014-04-30 12:29:52 ERROR  : ERROR:  no se puede eliminar la base de datos activa
+2014-04-30 14:36:11 ERROR  : ERROR:  se ha denegado el permiso para cambiar el nombre a la base de datos
+2014-05-02 15:22:04 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-05-05 09:25:35 ERROR  : ERROR:  se ha denegado el permiso para cambiar el nombre a la base de datos
+2014-05-05 10:25:15 ERROR  : ERROR:  update o delete en «roles» viola la llave foránea «permission_role_role_id_foreign» en la tabla «permission_role»
+DETAIL:  La llave (id)=(1) todavía es referida desde la tabla «permission_role».
+2014-05-05 10:25:23 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 1: delete from «permission_role».
+                                      ^
+2014-05-05 10:25:40 ERROR  : ERROR:  no existe la relación «assigned_role»
+LINE 1: delete from assigned_role
+                    ^
+2014-05-05 10:25:50 ERROR  : ERROR:  no existe la relación «assigned_role»
+LINE 1: delete from assigned_role
+                    ^
+2014-05-05 14:39:11 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-05-05 15:21:51 ERROR  : ERROR:  error de sintaxis en o cerca de «)»
+LINE 3: ...odigo_evaluacion") references "codigos_evaluaciones" ("id"))
+                                                                      ^
+2014-05-05 15:22:08 ERROR  : ERROR:  error de sintaxis en o cerca de «)»
+LINE 2: ...odigo_evaluacion") references "codigos_evaluaciones" ("id"))
+                                                                      ^
+2014-05-05 15:22:14 ERROR  : ERROR:  no existe la columna «id_codigo_evaluacion» referida en la llave foránea
+2014-05-06 09:23:01 ERROR  : ERROR:  la sintaxis de entrada no es válida para integer: «MM»
+LINE 1: insert into codigos_evaluaciones values('MM',now(),now())
+                                                ^
+2014-05-06 09:46:32 ERROR  : ERROR:  no existe la columna «admin»
+2014-05-06 10:06:48 ERROR  : ERROR:  el argumento de WHERE debe ser de tipo boolean, no tipo integer
+LINE 1: SELECT * FROM evaluaciones WHERE 1
+                                         ^
+2014-05-07 11:11:38 ERROR  : ERROR:  update o delete en «codigos_evaluaciones» viola la llave foránea «evaluaciones_id_codigo_evaluacion_foreign» en la tabla «evaluaciones»
+DETAIL:  La llave (id)=(4) todavía es referida desde la tabla «evaluaciones».
+2014-05-08 09:26:21 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 1: create table codigos_versiones
+                                      ^
+2014-05-08 09:26:31 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 1: create table codigos_versiones;
+                                      ^
+2014-05-08 09:26:34 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 1: create table codigos_versiones
+                                      ^
+2014-05-08 09:29:29 ERROR  : ERROR:  no existe la relación «codigos_evaluaciones»
+LINE 1: SELECT count(*) AS rows FROM ONLY codigos_evaluaciones
+                                          ^
+2014-05-08 09:34:42 ERROR  : ERROR:  no existe la relación «codigos_formas»
+LINE 1: SELECT count(*) AS rows FROM ONLY codigos_formas
+                                          ^
+2014-05-08 09:35:16 ERROR  : ERROR:  no se puede eliminar tabla codigos_evaluaciones porque otros objetos dependen de él
+DETAIL:  restricción «evaluaciones_id_codigo_evaluacion_foreign» en tabla evaluaciones depende de tabla codigos_evaluaciones
+restricción «codigos_versiones_codigo_evaluacion_foreign» en tabla codigos_versiones depende de tabla codigos_evaluaciones
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 09:35:21 ERROR  : ERROR:  no se puede eliminar tabla evaluaciones porque otros objetos dependen de él
+DETAIL:  restricción «niveles_id_evaluacion_foreign» en tabla niveles depende de tabla evaluaciones
+restricción «versiones_id_evaluacion_foreign» en tabla versiones depende de tabla evaluaciones
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 09:35:26 ERROR  : ERROR:  no se puede eliminar tabla niveles porque otros objetos dependen de él
+DETAIL:  restricción «formas_id_nivel_foreign» en tabla formas depende de tabla niveles
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 09:35:37 ERROR  : ERROR:  no se puede eliminar tabla users porque otros objetos dependen de él
+DETAIL:  restricción «evaluaciones_user_id_foreign» en tabla evaluaciones depende de tabla users
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 09:35:56 ERROR  : ERROR:  no se puede eliminar tabla evaluaciones porque otros objetos dependen de él
+DETAIL:  restricción «niveles_id_evaluacion_foreign» en tabla niveles depende de tabla evaluaciones
+restricción «versiones_id_evaluacion_foreign» en tabla versiones depende de tabla evaluaciones
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 09:36:11 ERROR  : ERROR:  no se puede eliminar tabla versiones porque otros objetos dependen de él
+DETAIL:  restricción «formas_id_version_foreign» en tabla formas depende de tabla versiones
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 09:42:48 ERROR  : ERROR:  no existe la columna «admin»
+2014-05-08 09:43:19 ERROR  : ERROR:  no existe la columna «admin»
+2014-05-08 09:43:23 ERROR  : ERROR:  no existe la columna «admin»
+2014-05-08 09:45:15 ERROR  : ERROR:  error de sintaxis en o cerca de «DEFAULT»
+LINE 1: ALTER TABLE evaluaciones ADD DEFAULT 'admin' FOR user_id
+                                     ^
+2014-05-08 10:08:11 ERROR  : ERROR:  error de sintaxis en o cerca de «15»
+LINE 2: ...dated_at", "created_at") values (1, 2, 1, 2014-05-08 15:07:2
+                                                                ^
+2014-05-08 12:17:52 ERROR  : ERROR:  ya existe el lenguaje «plpgsql»
+2014-05-08 14:25:25 ERROR  : server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+2014-05-08 14:32:59 ERROR  : ERROR:  no existe la función insertar_niveles()
+2014-05-08 14:33:10 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:33:38 ERROR  : ERROR:  una cadena de caracteres entre comillas está inconclusa en o cerca de «'
+DECLARE
+BEGIN
+	IF NEW.id_codigo_evaluacion = 1 THEN
+		INSERT INTO niveles VALUES (NEW.id_evaluacion,1,108,120,now(),now());
+	IF count_user = 0 THEN
+		UPDATE Customers SET rating=rating +1 WHERE cid = NEW.cid;
+	END IF;
+	RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER insertarNiveles
+AFTER INSERT ON evaluaciones
+FOR EACH ROW
+EXECUTE PROCEDURE insertar_niveles();»
+LINE 2: CREATE FUNCTION insertar_niveles() RETURNS TRIGGER AS '
+                                                              ^
+2014-05-08 14:33:54 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:34:02 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:34:03 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:34:03 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:34:03 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:34:03 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:34:03 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:34:07 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 13: $$ LANGUAGE plpgsql;
+         ^
+2014-05-08 14:34:13 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 13: ' LANGUAGE plpgsql;
+         ^
+2014-05-08 14:34:14 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 13: ' LANGUAGE plpgsql;
+         ^
+2014-05-08 14:34:14 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 13: ' LANGUAGE plpgsql;
+         ^
+2014-05-08 14:34:14 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 13: ' LANGUAGE plpgsql;
+         ^
+2014-05-08 14:34:14 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 13: ' LANGUAGE plpgsql;
+         ^
+2014-05-08 14:34:15 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 13: ' LANGUAGE plpgsql;
+         ^
+2014-05-08 14:35:48 ERROR  : ERROR:  error de sintaxis al final de la entrada
+LINE 13: $insertarNiveles$ LANGUAGE plpgsql;
+         ^
+2014-05-08 14:36:28 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 11: END;
+            ^
+2014-05-08 14:37:03 ERROR  : ERROR:  una cadena separada por $ está inconclusa en o cerca de «$insertarNiveles$
+DECLARE
+BEGIN
+	IF NEW.id_codigo_evaluacion = 1 THEN
+		INSERT INTO niveles VALUES (NEW.id_evaluacion,1,108,120,now(),now());
+	IF count_user = 0 THEN
+		UPDATE Customers SET rating=rating +1 WHERE cid = NEW.cid;
+	END IF;
+	RETURN NULL;
+END;»
+LINE 2: ...CE FUNCTION insertar_niveles() RETURNS TRIGGER AS $insertarN...
+                                                             ^
+2014-05-08 14:38:36 ERROR  : ERROR:  no existe la función proteger_y_rellenar_datos()
+2014-05-08 14:38:41 ERROR  : ERROR:  error de sintaxis en o cerca de «;»
+LINE 8: END;
+           ^
+2014-05-08 14:40:27 ERROR  : ERROR:  no existe la columna «admin»
+2014-05-08 14:41:34 ERROR  : ERROR:  error de sintaxis en o cerca de «19»
+LINE 1: ..._at") values (ENES, dsañldmasñdmas, 1, 2014-05-08 19:40:30, ...
+                                                             ^
+2014-05-08 14:41:46 ERROR  : ERROR:  error de sintaxis en o cerca de «)»
+LINE 1: ...lues (ENES, dsañldmasñdmas, 1, now(), now()) returning "id")
+                                                                      ^
+2014-05-08 14:41:58 ERROR  : ERROR:  no existe la columna «enes»
+LINE 2: values (ENES, dsañldmasñdmas, 1, now(), now()) returning "id...
+                ^
+2014-05-08 14:42:06 ERROR  : ERROR:  el registro «new» no tiene un campo «id_evaluacion»
+CONTEXT:  sentencia SQL: «INSERT INTO niveles VALUES (NEW.id_evaluacion,1,108,120,now(),now())»
+función PL/pgSQL insertar_niveles() en la línea 5 en sentencia SQL
+2014-05-08 14:42:31 ERROR  : ERROR:  ya existe un trigger «insertarniveles» para la relación «evaluaciones»
+2014-05-08 14:42:55 ERROR  : ERROR:  la columna «preguntas_operativas» es de tipo integer pero la expresión es de tipo timestamp with time zone
+LINE 1: INSERT INTO niveles VALUES (NEW.id,1,108,120,now(),now())
+                                                     ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+QUERY:  INSERT INTO niveles VALUES (NEW.id,1,108,120,now(),now())
+CONTEXT:  función PL/pgSQL insertar_niveles() en la línea 5 en sentencia SQL
+2014-05-08 15:06:23 ERROR  : ERROR:  no se puede eliminar tabla evaluaciones porque otros objetos dependen de él
+DETAIL:  restricción «niveles_id_evaluacion_foreign» en tabla niveles depende de tabla evaluaciones
+restricción «versiones_id_evaluacion_foreign» en tabla versiones depende de tabla evaluaciones
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 15:07:10 ERROR  : ERROR:  no se puede eliminar tabla evaluaciones porque otros objetos dependen de él
+DETAIL:  restricción «niveles_id_evaluacion_foreign» en tabla niveles depende de tabla evaluaciones
+restricción «versiones_id_evaluacion_foreign» en tabla versiones depende de tabla evaluaciones
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 15:09:50 ERROR  : ERROR:  error de sintaxis en o cerca de «RETURN»
+LINE 7:  RETURN NULL;
+         ^
+2014-05-08 15:11:59 ERROR  : ERROR:  no se puede eliminar función eliminar_niveles() porque otros objetos dependen de él
+DETAIL:  disparador eliminar_niveles en tabla evaluaciones depende de función eliminar_niveles()
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 15:19:28 ERROR  : ERROR:  no existe la función eliminar_niveles()
+2014-05-08 15:24:51 ERROR  : ERROR:  una cadena separada por $ está inconclusa en o cerca de «$insertaresquema$
+DECLARE
+BEGIN
+	IF NEW.id_codigo_evaluacion = 1 THEN--ENES
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,1,108,120,now(),now());
+		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
+			VALUES (NEW.id,1,now(),now());
+		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
+			VALUES (NEW.id,2,now(),now());
+	END IF;
+	IF NEW.id_codigo_evaluacion = 2 THEN--Quiero Ser Maestro - Razonamiento
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,1,88,72,now(),now());
+		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
+			VALUES (NEW.id,1,now(),now());
+	END IF;	
+	IF NEW.id_codigo_evaluacion = 6 THEN--Ser Estudiante en la Mitad del Mundo
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,2,56,56,now(),now());
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,3,63,57,now(),now());
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,4,69,63,now(),now());
+		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
+			VALUES (NEW.id,5,88,79,now(),now());
+		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
+			VALUES (NEW.id,1,now(),now());
+	END IF;
+	RETURN NULL;
+END;
+
+$insertarNiveles$ LANGUAGE plpgsql;
+
+CREATE TRIGGER insertaresquema
+AFTER INSERT ON evaluaciones
+FOR EACH ROW
+EXECUTE PROCEDURE insertar_niveles();»
+LINE 2: ...CE FUNCTION insertar_esquema() RETURNS TRIGGER AS $insertare...
+                                                             ^
+2014-05-08 15:25:11 ERROR  : ERROR:  no existe la función insertar_esquema()
+2014-05-08 15:25:15 ERROR  : ERROR:  no existe la función insertar_esquema()
+2014-05-08 15:25:16 ERROR  : ERROR:  no existe la función insertar_esquema()
+2014-05-08 15:25:17 ERROR  : ERROR:  no existe la función insertar_esquema()
+2014-05-08 15:25:20 ERROR  : ERROR:  no existe la función insertar_esquema()
+2014-05-08 15:25:23 ERROR  : ERROR:  no existe la función insertar_niveles()
+2014-05-08 15:25:34 ERROR  : ERROR:  no existe la función insertar_niveles()
+2014-05-08 15:25:35 ERROR  : ERROR:  no existe la función insertar_niveles()
+2014-05-08 15:25:35 ERROR  : ERROR:  no existe la función insertar_niveles()
+2014-05-08 16:15:56 ERROR  : ERROR:  debe ser dueño del esquema public
+2014-05-08 16:16:06 ERROR  : ERROR:  no se puede eliminar tabla codigos_evaluaciones porque otros objetos dependen de él
+DETAIL:  restricción «evaluaciones_id_codigo_evaluacion_foreign» en tabla evaluaciones depende de tabla codigos_evaluaciones
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.
+2014-05-08 16:16:11 ERROR  : ERROR:  no se puede eliminar tabla niveles porque otros objetos dependen de él
+DETAIL:  restricción «formas_id_nivel_foreign» en tabla formas depende de tabla niveles
+HINT:  Use DROP ... CASCADE para eliminar además los objetos dependientes.

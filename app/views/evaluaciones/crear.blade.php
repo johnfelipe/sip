@@ -13,8 +13,7 @@
 </h1>  
 
         {{ Form::open(array('url' => 'evaluaciones/crear')) }}
-        <!-- Set hidden form element with userid embedded -->
-        <input type="hidden" name='id' id='id' value={{ $userid }}>
+        <!-- Set hidden form element with userid embedded -->       
         @if (Session::get('mensaje'))
           <div class="alert alert-success">{{Session::get('mensaje')}}</div>
         @endif

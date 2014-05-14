@@ -7,6 +7,10 @@ class Evaluaciones extends Eloquent {
 
 	public static $rules = array();
 
+    public function key(){
+        return $this->belongsTo('Keys', 'id_evaluacion');
+    }
+
     /*protected $attributes = array(
         'user_id' => Session::get('user_id'),
     );*/
