@@ -4,7 +4,7 @@ DECLARE
 BEGIN
 	IF NEW.id_codigo_evaluacion = 1 THEN--ENES
 		INSERT INTO niveles(id_evaluacion,nivel,preguntas,preguntas_operativas,created_at,updated_at) 
-			VALUES (NEW.id,1,108,120,now(),now());
+			VALUES (NEW.id,1,120,108,now(),now());
 		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 
 			VALUES (NEW.id,1,now(),now());
 		INSERT INTO versiones(id_evaluacion,version,created_at,updated_at) 

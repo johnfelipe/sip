@@ -40,7 +40,7 @@
           </div>
         @endif          
             
-            {{Form::submit('Guardar')}}
+        {{Form::submit('Guardar')}}
         {{ Form::close() }}
 <br />
 <br />

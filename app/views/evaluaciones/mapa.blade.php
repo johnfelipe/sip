@@ -29,12 +29,14 @@
 <div class="list-group">
 <table class="table table-striped" style="width: 900px">
     <tr>
+        <th>ID Evaluación</th>
         <th>Nombre</th>
         <th></th>               
     </tr> 
 	<ul>
   @foreach($evaluaciones as $evaluacion)   
   <tr>
+        <td>{{ $evaluacion->id }}</td>
         <td>{{ $evaluacion->nombre  }}</td>
         @if($evaluacion->estado == 1)                            
         	<td>{{ HTML::link( 'evaluaciones/generar_mapa_tecnico/'.$evaluacion->id , 'Generar KEY' ) }}</td>

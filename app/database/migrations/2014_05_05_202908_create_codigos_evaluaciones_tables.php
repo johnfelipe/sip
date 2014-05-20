@@ -16,6 +16,7 @@ class CreateCodigosEvaluacionesTables extends Migration {
 			$table->increments('id');
 			$table->string('nombre', 50);
 			$table->string('mapa_tecnico', 200);
+			$table->string('respuestas', 200);
 			$table->timestamps();
 		});
 	}

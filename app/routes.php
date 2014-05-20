@@ -28,11 +28,11 @@ Route::group(array('before' => 'auth'), function()
 Route::get('evaluaciones', array('uses' => 'EvaluacionesController@mostrarEvaluaciones'));
 Route::post('evaluaciones', array('uses' => 'EvaluacionesController@crearEvaluacion'));
 
-Route::get('evaluaciones/{id}', array('uses'=>'EvaluacionesController@verEvaluacion'));
 // esta ruta contiene un parámetro llamado {id}, que sirve para indicar el id de la evaluacion que deseamos buscar
 // este parámetro es pasado al controlador, podemos colocar todos los parámetros que necesitemos
 // solo hay que tomar en cuenta que los parámetros van entre llaves {}
 // si el parámetro es opcional se colocar un signo de interrogación {parámetro?}
+Route::get('evaluaciones/{id}', array('uses'=>'EvaluacionesController@verEvaluacion'));
 Route::get('evaluaciones/borrar/{id}', array('uses'=>'EvaluacionesController@eliminarEvaluacion'));
 
 Route::get('evaluaciones.mapa_tecnico', array('uses' => 'EvaluacionesController@mapaTecnico'));
@@ -41,46 +41,16 @@ Route::post('evaluaciones.mapa_tecnico', array('uses' => 'EvaluacionesController
 Route::get('evaluaciones/generar_mapa_tecnico/{id}', array('uses'=>'EvaluacionesController@generarKey'));
 Route::get('evaluaciones/descargar_mapa_tecnico/{id}', array('uses'=>'EvaluacionesController@descargarKey'));
 
-/*
-Route::get('/', function()
-{
-    $admin = new Role();
-    $admin->name = 'Administrador';
-    $admin->save();
- 
-    $psicometrico = new Role();
-    $psicometrico->name = 'Psicometrico';
-    $psicometrico->save();
+Route::get('calificacion.subir_respuestas', array('uses' => 'EvaluacionesController@viewSubirRespuestas'));
+Route::post('calificacion.subir_respuestas', array('uses' => 'EvaluacionesController@subirRespuestas'));
 
-    $visita = new Role();
-    $visita->name = 'Visita';
-    $visita->save();
- 
-    $full = new Permission();
-    $full->name = 'full';
-    $full->display_name = 'Accesso Total';
-    $full->save();
- 
-    $calificacion = new Permission();
-    $calificacion->name = 'calificacion';
-    $calificacion->display_name = 'Accesso módulo de calificación';
-    $calificacion->save();
+Route::get('calificacion/calificar/{id}', array('uses'=>'EvaluacionesController@calificar'));
+Route::get('calificacion/calculoIneval/{id}', array('uses'=>'EvaluacionesController@calculoIneval'));
+Route::get('calificacion/descargar_calificaciones/{id}', array('uses'=>'EvaluacionesController@descargarCalificaciones'));
 
-    $calibracion = new Permission();
-    $calibracion->name = 'calibracion';
-    $calibracion->display_name = 'Accesso módulo de calibración';
-    $calibracion->save();
- 
-    $admin->attachPermission($full);
-    $psicometrico->attachPermission($calificacion);
-    $psicometrico->attachPermission($calibracion);
-     
-    $user1 = User::find('admin');
-    $user2 = User::find('psicometrico');
- 
-    $user1->attachRole($admin);
-    $user2->attachRole($psicometrico);
- 
-    return 'Roles creados exitosamente!';
-});*/
+Route::get('calificacion.cargar_archivo', array('uses' => 'EvaluacionesController@viewCargarArchivo'));
+Route::post('calificacion.cargar_archivo', array('uses' => 'EvaluacionesController@cargarArchivo'));
+
+Route::get('calibracion/bilog', array('uses' => 'EvaluacionesController@bilog'));
+Route::get('calibracion/bilog/{id},{nivel}', array('uses'=>'EvaluacionesController@generarBilog'));
 

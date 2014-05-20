@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKeysTables extends Migration {
+class CreateRazRespuestasbkTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,10 @@ class CreateKeysTables extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('keys', function(Blueprint $table) {
+		Schema::create('raz_respuestasbk', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id_evaluacion')->unsigned();
+			$table->integer('id_evaluacion')->unsigned()->nullable();
+			$table->string('clip', 100);
 			$table->integer('nivel');
 			$table->integer('version');
 			$table->integer('forma');
@@ -105,50 +106,10 @@ class CreateKeysTables extends Migration {
 			$table->string('p85', 1)->nullable();
 			$table->string('p86', 1)->nullable();
 			$table->string('p87', 1)->nullable();
-			$table->string('p88', 1)->nullable();			
-			$table->string('p89', 1)->nullable();
-			$table->string('p90', 1)->nullable();
-			$table->string('p91', 1)->nullable();
-			$table->string('p92', 1)->nullable();
-			$table->string('p93', 1)->nullable();
-			$table->string('p94', 1)->nullable();
-			$table->string('p95', 1)->nullable();
-			$table->string('p96', 1)->nullable();
-			$table->string('p97', 1)->nullable();
-			$table->string('p98', 1)->nullable();
-			$table->string('p99', 1)->nullable();
-			$table->string('p100', 1)->nullable();
-			$table->string('p101', 1)->nullable();
-			$table->string('p102', 1)->nullable();
-			$table->string('p103', 1)->nullable();
-			$table->string('p104', 1)->nullable();
-			$table->string('p105', 1)->nullable();
-			$table->string('p106', 1)->nullable();
-			$table->string('p107', 1)->nullable();
-			$table->string('p108', 1)->nullable();
-			$table->string('p109', 1)->nullable();
-			$table->string('p110', 1)->nullable();
-			$table->string('p111', 1)->nullable();
-			$table->string('p112', 1)->nullable();
-			$table->string('p113', 1)->nullable();
-			$table->string('p114', 1)->nullable();
-			$table->string('p115', 1)->nullable();
-			$table->string('p116', 1)->nullable();
-			$table->string('p117', 1)->nullable();
-			$table->string('p118', 1)->nullable();
-			$table->string('p119', 1)->nullable();
-			$table->string('p120', 1)->nullable();
-			$table->string('p121', 1)->nullable();
-			$table->string('p122', 1)->nullable();
-			$table->string('p123', 1)->nullable();
-			$table->string('p124', 1)->nullable();
-			$table->string('p125', 1)->nullable();
-			$table->string('p126', 1)->nullable();
-			$table->string('p127', 1)->nullable();
-			$table->string('p128', 1)->nullable();
-			$table->string('p129', 1)->nullable();			
+			$table->string('p88', 1)->nullable();
 			$table->foreign('id_evaluacion')
-				->references('id')->on('evaluaciones');
+				->references('id')->on('evaluaciones')
+				->onDelete('set null');
 			$table->timestamps();
 		});
 	}
@@ -160,8 +121,7 @@ class CreateKeysTables extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('keys');
+		Schema::drop('raz_respuestasbk');
 	}
 
 }
-

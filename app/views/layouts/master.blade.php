@@ -55,15 +55,13 @@
                             <li class="dropdown">
                                 <a class="dropdown-toggle text-white"  data-toggle="dropdown">Calificación<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{{ URL::to('calificacion') }}}">Subir Respuestas</a></li>
-                                        <li><a href="{{{ URL::to('calificacion') }}}">Cargar Archivo Externo</a></li>
-                                        <li><a href="{{{ URL::to('calificacion') }}}">Calificar</a></li>                                                                                
+                                        <li><a href="{{{ URL::to('calificacion.subir_respuestas') }}}">Iniciar Proceso</a></li>                                                                                
                                     </ul>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle text-white"  data-toggle="dropdown">Calibración<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{{ URL::to('calibracion') }}}">Generar Archivo BILOG</a></li>
+                                        <li><a href="{{{ URL::to('calibracion/bilog') }}}">Generar Archivo BILOG</a></li>
                                         <li><a href="{{{ URL::to('calibracion') }}}">Calibrar</a></li>                               
                                     </ul>
                             </li>                                                        

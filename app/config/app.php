@@ -188,6 +188,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'CSV'             =>'mnshankar\CSV\CSVFacade',
+		'Helper'          => 'Helpers\Helper',
 
 	),
 

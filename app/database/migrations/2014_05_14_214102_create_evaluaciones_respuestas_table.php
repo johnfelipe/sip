@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvaluacionesMapastecnicosTables extends Migration {
+class CreateEvaluacionesRespuestasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,19 +12,15 @@ class CreateEvaluacionesMapastecnicosTables extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('evaluaciones_mapastecnicos', function(Blueprint $table) {
+		Schema::create('evaluaciones_respuestas', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id_evaluacion')->unsigned()->nullable();
-			$table->integer('id_codigo_evaluacion')->unsigned();
-			$table->string('mapatecnico_tabla', 100);
-			$table->string('mapatecnico_archivo', 200);
+			$table->integer('id_evaluacion')->unsigned()->nullable();						
+			$table->string('respuestas_archivo', 200);
 			$table->string('user_id',20)->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->foreign('id_evaluacion')
 				->references('id')->on('evaluaciones')
 				->onDelete('set null');
-			$table->foreign('id_codigo_evaluacion')
-				->references('id')->on('codigos_evaluaciones');
 			$table->timestamps();
 		});
 	}
@@ -36,7 +32,7 @@ class CreateEvaluacionesMapastecnicosTables extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('evaluaciones_mapastecnicos');
+		Schema::drop('evaluaciones_respuestas');
 	}
 
 }

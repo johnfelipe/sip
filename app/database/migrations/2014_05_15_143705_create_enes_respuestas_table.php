@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKeysTables extends Migration {
+class CreateEnesRespuestasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,10 @@ class CreateKeysTables extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('keys', function(Blueprint $table) {
+		Schema::create('enes_respuestas', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id_evaluacion')->unsigned();
+			$table->integer('id_evaluacion')->unsigned()->nullable();
+			$table->string('clip', 100);
 			$table->integer('nivel');
 			$table->integer('version');
 			$table->integer('forma');
@@ -138,17 +139,19 @@ class CreateKeysTables extends Migration {
 			$table->string('p118', 1)->nullable();
 			$table->string('p119', 1)->nullable();
 			$table->string('p120', 1)->nullable();
-			$table->string('p121', 1)->nullable();
-			$table->string('p122', 1)->nullable();
-			$table->string('p123', 1)->nullable();
-			$table->string('p124', 1)->nullable();
-			$table->string('p125', 1)->nullable();
-			$table->string('p126', 1)->nullable();
-			$table->string('p127', 1)->nullable();
-			$table->string('p128', 1)->nullable();
-			$table->string('p129', 1)->nullable();			
+			$table->integer('total_rv_con_piloto')->nullable();
+			$table->integer('total_rv_sin_piloto')->nullable();
+			$table->integer('total_rn_con_piloto')->nullable();
+			$table->integer('total_rn_sin_piloto')->nullable();
+			$table->integer('total_ra_con_piloto')->nullable();
+			$table->integer('total_ra_sin_piloto')->nullable();
+			$table->integer('total_con_piloto')->nullable();
+			$table->integer('total_sin_piloto')->nullable();
+			$table->integer('inev_con_piloto')->nullable();
+			$table->integer('inev_sin_piloto')->nullable();
 			$table->foreign('id_evaluacion')
-				->references('id')->on('evaluaciones');
+				->references('id')->on('evaluaciones')
+				->onDelete('set null');
 			$table->timestamps();
 		});
 	}
@@ -160,8 +163,7 @@ class CreateKeysTables extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('keys');
+		Schema::drop('enes_respuestas');
 	}
 
 }
-

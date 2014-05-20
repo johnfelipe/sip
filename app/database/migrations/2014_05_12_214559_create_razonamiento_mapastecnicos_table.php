@@ -18,6 +18,7 @@ class CreateRazonamientoMapastecnicosTable extends Migration {
 			$table->integer('nivel');
 			$table->integer('id_item');
 			$table->string('campo', 200);
+			$table->string('id_campo', 10);
 			$table->string('funcion', 100);
 			$table->string('respuesta_correcta', 100);
 			$table->integer('f1')->nullable();

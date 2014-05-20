@@ -62,8 +62,12 @@
   @foreach($evaluaciones as $evaluacion)
   <tr>
         <td>{{ $evaluacion->id }}</td>
-        <td>{{ HTML::link( 'evaluaciones/'.$evaluacion->id , $evaluacion->nombre ) }}</td>        
-        <td><a href="{{{ URL::to('evaluaciones/borrar/'.$evaluacion->id) }}}">Eliminar</a></td>            
+        <td>{{ HTML::link( 'evaluaciones/'.$evaluacion->id , $evaluacion->nombre ) }}</td> 
+        @if($evaluacion->estado == 0)       
+            <td><a href="{{{ URL::to('evaluaciones/borrar/'.$evaluacion->id) }}}">Eliminar</a></td>
+        @else
+            <td></td>
+        @endif
     </tr>    
   @endforeach
 	</ul>
