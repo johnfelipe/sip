@@ -61,11 +61,19 @@
                             <li class="dropdown">
                                 <a class="dropdown-toggle text-white"  data-toggle="dropdown">Calibración<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{{ URL::to('calibracion/bilog') }}}">Generar Archivo BILOG</a></li>
-                                        <li><a href="{{{ URL::to('calibracion') }}}">Calibrar</a></li>                               
+                                        <li><a href="{{{ URL::to('calibracion/bilog') }}}">Descarga Archivo BILOG</a></li>
+                                        <li><a href="{{{ URL::to('') }}}">Subir Parámetros</a></li>                               
                                     </ul>
-                            </li>                                                        
-                            <li><a href="{{{ URL::to('reportes') }}}">Reportes</a></li>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle text-white"  data-toggle="dropdown">Reportes<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{{ URL::to('') }}}">Tabla de calificación</a></li>
+                                        <li><a href="{{{ URL::to('') }}}">Tabla de respuestas</a></li>
+                                        <li><a href="{{{ URL::to('') }}}">Tabla de parámetros</a></li>
+                                    </ul>
+                            </li>                                                         
+                            
                             @endif                            
                         </ul> 
                     </div>

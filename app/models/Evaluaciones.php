@@ -43,7 +43,7 @@ class Evaluaciones extends Eloquent {
         
             // en caso de cumplir las reglas se crea el objeto Evaluacion
             $evaluacion = static::create($input);        
-            
+
             // se retorna un mensaje de éxito al controlador
             $respuesta['error']   = false;
             $respuesta['data']    = $evaluacion;

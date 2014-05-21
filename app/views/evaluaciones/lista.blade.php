@@ -16,7 +16,9 @@
 <div class="row evaluaciones">
 	<h3>Nueva Evaluación</h3>
 	{{ Form::open(array('url' => 'evaluaciones')) }}
-    
+    <?php $id = Auth::user()->id; ?>
+    {{ Form::hidden('user_id', $id) }}
+
 
 	@if (Session::get('mensaje'))
 		<div class="alert alert-success">{{Session::get('mensaje')}}</div>

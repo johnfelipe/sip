@@ -96,7 +96,7 @@ class EvaluacionesController extends BaseController {
     public function subirMapaTecnico()
     { 
         $file = Input::file('file');
-        $destinationPath = 'uploads/';
+        $destinationPath = 'app/uploads/';
         $id_evaluacion = Input::get('nombre');
         $evaluacion = Evaluaciones::find($id_evaluacion);
 
@@ -115,7 +115,7 @@ class EvaluacionesController extends BaseController {
               $evaluacionMapaTecnico->mapatecnico_archivo = $filename;
               $evaluacionMapaTecnico->user_id = Auth::user()->id;
               $evaluacionMapaTecnico->save();
-              $csv = $this->readCSV("uploads/".$filename,$filename);              
+              $csv = $this->readCSV("app/uploads/".$filename,$filename);              
 
               foreach ($csv as $listings) {
                 if($evaluacion->id_codigo_evaluacion==1){
@@ -180,15 +180,15 @@ class EvaluacionesController extends BaseController {
               
               $evaluacion->estado = 1;
               $evaluacion->save();
-              return Redirect::to('evaluaciones.mapa_tecnico'); // or do a redirect with some message that file was uploaded
+              return Redirect::to('evaluaciones.mapa_tecnico')->with('success', 'Mapa Técnico cargado exitosamente'); // or do a redirect with some message that file was uploaded
               } else {
-                return Response::json('error', 400);
+                return Redirect::to('evaluaciones.mapa_tecnico')->withErrors('Error en la carga ');
               }    
             }
     }
 
     public function readCSV($csvFile,$name) {
-        chmod("uploads/".$name, 0777);
+        chmod("app/uploads/".$name, 0777);
         $file_handle = fopen($csvFile, 'r');
         while (!feof($file_handle)) {
             $line_of_text[] = fgetcsv($file_handle, 1024);
@@ -307,7 +307,7 @@ class EvaluacionesController extends BaseController {
     public function subirRespuestas()
     { 
         $file = Input::file('file');
-        $destinationPath = 'uploads/';
+        $destinationPath = 'app/uploads/';
         $id_evaluacion = Input::get('nombre');
         $evaluacion = Evaluaciones::find($id_evaluacion);
         $codigoEvaluacion = CodigosEvaluaciones::find($evaluacion->id_codigo_evaluacion);
@@ -323,7 +323,7 @@ class EvaluacionesController extends BaseController {
               $evaluacionRespuesta->respuestas_archivo = $filename;
               $evaluacionRespuesta->user_id = Auth::user()->id;
               $tablaRespuestas = $codigoEvaluacion->respuestas;
-              //$csv = $this->readCSV("uploads/".$filename,$filename);
+              $csv = $this->readCSV("app/uploads/".$filename,$filename);
               if($evaluacion->id_codigo_evaluacion==1){
                 $p = "";
                 for($i=1;$i<=120;$i++){
@@ -333,7 +333,7 @@ class EvaluacionesController extends BaseController {
                     }
                 $p = rtrim($p, ',');                
                 #open file
-                if(false !== ($handle = fopen("uploads/".$filename, 'r'))){
+                if(false !== ($handle = fopen("app/uploads/".$filename, 'r'))){
                   #for every line in the csv file
                   while(false !== ($line = fgetcsv($handle, 0, ',', '"'))){
                   $query = "INSERT INTO enes_respuestas (id_evaluacion, clip, nivel, version, forma, $p, created_at, updated_at)VALUES";
@@ -365,22 +365,6 @@ class EvaluacionesController extends BaseController {
                   DB::statement( $query);
                   }
                 }
-                #remove trailing ','
-                
-                /*foreach ($csv as $listings) {
-                  $item = new EnesRespuestas;
-                  $item->id_evaluacion = $id_evaluacion;
-                  $item->clip = $listings[0];
-                  $item->nivel = $listings[1];
-                  $item->version = $listings[2];
-                  $item->forma = $listings[3];                  
-                  for($i=1;$i<=120;$i++){
-                      $j = $i+3;
-                      $p = "p".$i;
-                      $item->$p = $listings[$j];
-                    }
-                  $item->save();                    
-                }*/
               }else{
                 foreach ($csv as $listings) {
                   $item = new Respuestas;
@@ -436,7 +420,7 @@ class EvaluacionesController extends BaseController {
               $evaluacion->estado = 3;
               $evaluacionRespuesta->save();
               $evaluacion->save();
-              return Redirect::to('calificacion.subir_respuestas'); // or do a redirect with some message that file was uploaded
+              return Redirect::to('calificacion.subir_respuestas')->with('success', 'Respuestas subidas exitosamente'); // or do a redirect with some message that file was uploaded
               } else {
                 return Response::json('error', 400);
               }    
@@ -575,199 +559,238 @@ class EvaluacionesController extends BaseController {
                
         $evaluaciones = DB::select( DB::raw("SELECT e.id, e.nombre, e.estado, n.nivel FROM evaluaciones e
                                       LEFT JOIN niveles n ON e.id = n.id_evaluacion                                      
-                                      ORDER BY e.id, n.nivel"));
+                                      ORDER BY e.id, n.nivel"));         
         return View::make('calibraciones.archivoBilog', array('evaluaciones' => $evaluaciones));        
     }
 
     public function generarBilog($id,$nivel)
     {
                
-      $evaluacion = Evaluaciones::find($id);
-      $codigoEvaluacion = CodigosEvaluaciones::find($evaluacion->id_codigo_evaluacion);
-      $tablaRespuestas = $codigoEvaluacion->respuestas;
-      $mapaTecnico = $codigoEvaluacion->mapa_tecnico;
-      Helper::posicionTemp($id,$mapaTecnico);
-      DB::statement("CREATE TABLE temp (id serial, iditem integer, funcion character varying(50), nivel integer, 
-                    idcampo character varying(10))");        
-      DB::statement("INSERT INTO temp (iditem,funcion,nivel,idcampo) 
-                      SELECT id_item, funcion, nivel, id_campo FROM $mapaTecnico 
-                      WHERE id_evaluacion = :id AND nivel=:nivel ORDER BY id_item" ,
-                      array('nivel' => $nivel,
-                            'id' => $id,));      
-      $nomEvaluacion = $evaluacion->nombre;
-      switch ($nivel) {
-        case 1:
-          $nomNivel ="1er";
-          break;
-        case 2:
-          $nomNivel = "2do";
-          break;
-        case 3:
-          $nomNivel = "3ro";
-          break;
-        case 4:
-          $nomNivel = "4to";
-          break;
-        case 5:
-          $nomNivel = "5to";
-          break;
-      }
-      $archivo = $nomEvaluacion."_".$nomNivel.".BLM";
-      $file = fopen($archivo,"w") or die("Problemas");
-      fputs($file,"Calibración ".$nomEvaluacion.", ".$nomNivel." NIVEL COMPLETO\r\n");
-      fputs($file,"COMMENT\r\n");
-      fputs($file,">GLOBAL DFName = '".$nomNivel.".DAT',\r\n");
-      fputs($file,"NPArm = 2,\r\n");
-      $select = DB::select( DB::raw("SELECT nivel, COUNT(id_campo) AS totalcampo FROM $mapaTecnico 
-                                      WHERE id_evaluacion = :id_evaluacion AND nivel = :nivel GROUP BY nivel, id_campo
-                                      ORDER BY nivel"),
-                                      array('id_evaluacion' => $id,
-                                            'nivel' => $nivel,));
-      $totalItems = 0;
-      $totalCampos = 0;
-      $NITems = "(";
-      foreach($select as $result){
-        $totalCampos++;
-        $NITems .= $result->totalcampo.",";
-        $totalItems += $result->totalcampo;        
-      }
-      $NITems .= ")";
-      $NITems = str_replace(",)",")",$NITems);
-      fputs($file,"NTEst = $totalCampos,\r\n");
-      $select = DB::select( DB::raw("SELECT nivel, COUNT(id_campo) AS totalpilotoscampos FROM $mapaTecnico 
-                                      WHERE id_evaluacion = :id_evaluacion AND nivel = :nivel AND funcion = 'Piloto' 
-                                      GROUP BY nivel, id_campo ORDER BY nivel"),
-                                      array('id_evaluacion' => $id,
-                                            'nivel' => $nivel,));
-      $totalCamposPiloto = 0;
-      $NVAriant = "NVAriant=(";
-      foreach($select as $result){
-        $totalCamposPiloto++;
-        $NVAriant .= $result->totalpilotoscampos.",";
-      }
-      $NVAriant .= ")";
-      $NVAriant = str_replace(",)",")",$NVAriant);
-      if(count($select)>0){
-        fputs($file,"NVTEst = $totalCamposPiloto,\r\n");
-      }
-      fputs($file,"LOGistic,\r\n");
-      fputs($file,"SAVe;\r\n");
-      fputs($file,">SAVE PARm = '".$nomNivel."_SERMM.PAR',\r\n");
-      fputs($file,"      SCOre = '".$nomNivel."_SERMM.SCO',\r\n");
-      fputs($file,"      ISTat = '".$nomNivel."_SERMM.IST';\r\n");
-      if(count($select)>0){
-        fputs($file,">LENGTH NITems=".$NITems.",\r\n");
-        fputs($file,"        ".$NVAriant.";\r\n");
-      }else{
-        fputs($file,">LENGTH NITems=".$NITems.";\r\n");
-      }              
-      fputs($file,">INPUT NTOtal = $totalItems,\r\n");
-      fputs($file,"       NALt = 4,\r\n");
-      if($evaluacion->id_codigo_evaluacion==6)
-        fputs($file,"       NIDchar = 5,\r\n");
-      if($evaluacion->id_codigo_evaluacion=1)
-        fputs($file,"       NIDchar = 10,\r\n");
-      $select = DB::select( DB::raw("SELECT COUNT(forma) as total FROM formas f, niveles n, evaluaciones e
-                                    WHERE f.nivel=n.nivel AND n.id_evaluacion = e.id AND n.nivel = :nivel 
-                                    AND f.id_evaluacion = e.id AND e.id = :id_evaluacion"),
-                                      array('id_evaluacion' => $id,
-                                            'nivel' => $nivel,));
-      $totalFormas = (int)$select[0]->total;
-      fputs($file,"       NFOrm = ".$totalFormas.",\r\n");
-      fputs($file,"       KFName = '".$nomNivel.".KEY';\r\n");
-      $select = DB::select( DB::raw("SELECT id, iditem, funcion FROM temp WHERE nivel=:nivel"),
-                                      array('nivel' => $nivel,));
-      $INAmes = "INAmes=(";
-      $j=1;
-      foreach($select as $result){
-        $INAmes .= "'".(int)$result->iditem."',";
-        if($j%9==0)
-          $INAmes .= "\r\n";
-        $j++;
-      }
-      $INAmes .= ")";
-      $INAmes = str_replace(",)",")",$INAmes);
-      fputs($file,">ITEMS ".$INAmes.";\r\n");
-      $select = DB::select( DB::raw("SELECT DISTINCT campo, id_campo FROM $mapaTecnico 
-                                      WHERE id_evaluacion = :id_evaluacion ORDER BY id_campo"),
-                                      array('id_evaluacion' => $id,));
-      foreach($select as $result){
-        $idCampo = (int)$result->id_campo;
-        $campo = $result->campo;
-        $i=1;
-        $INUmber = "(";
-        $INUmberV = "(";
-        $select1 = DB::select( DB::raw("SELECT id, funcion FROM temp 
-                                      WHERE idcampo = :id_campo AND nivel=:nivel ORDER BY id "),
-                                      array('nivel' => $nivel,                                        
-                                            'id_campo' => $idCampo,));
-        $s=1;
-        $t=1;
-        foreach($select1 as $result1){
-          if($result1->funcion!='Piloto'){
-            $INUmber .= (int)$resultadoItems['id'].",";
-            $s++;
-            if($s%15==0)
-              $INUmber .= "\r\n";
-          }
-          if($resultadoItems['funcion']=='Piloto'){
-            $INUmberV .= (int)$resultadoItems['id'].",";
-            $t++;
-            if($t%15==0)
-              $INUmberV .= "\r\n";
-          }
+      $selectArchivo = DB::select( DB::raw("SELECT * FROM evaluaciones_nivel_bilog e                                     
+                                            WHERE id_evaluacion = :id_evaluacion AND nivel = :nivel") ,
+                                            array('nivel' => $nivel,
+                                                  'id_evaluacion' => $id,));
+      if(count($selectArchivo)==0){
+        $evaluacion = Evaluaciones::find($id);
+        $codigoEvaluacion = CodigosEvaluaciones::find($evaluacion->id_codigo_evaluacion);      
+        $mapaTecnico = $codigoEvaluacion->mapa_tecnico;
+        $evaluacionBilog = new EvaluacionesBilog;
+        Helper::posicionTemp($id,$mapaTecnico);
+        DB::statement("CREATE TABLE temp (id serial, iditem integer, funcion character varying(50), nivel integer, 
+                      idcampo character varying(10))");        
+        DB::statement("INSERT INTO temp (iditem,funcion,nivel,idcampo) 
+                        SELECT id_item, funcion, nivel, id_campo FROM $mapaTecnico 
+                        WHERE id_evaluacion = :id AND nivel=:nivel ORDER BY id_item" ,
+                        array('nivel' => $nivel,
+                              'id' => $id,));      
+        $nomEvaluacion = $evaluacion->nombre;
+        switch ($nivel) {
+          case 1:
+            $nomNivel ="1er";
+            break;
+          case 2:
+            $nomNivel = "2do";
+            break;
+          case 3:
+            $nomNivel = "3ro";
+            break;
+          case 4:
+            $nomNivel = "4to";
+            break;
+          case 5:
+            $nomNivel = "5to";
+            break;
         }
-        $INUmber .= ")";
-        $INUmberV .= ")";
-        $INUmber = str_replace(",)",")",$INUmber);
-        $INUmberV = str_replace(",)",")",$INUmberV);
-        fputs($file,">TEST".$i." TNAme = '".$campo."',\r\n");
-        fputs($file,"INUmber = ".$INUmber.";\r\n");
-        if($INUmberV!="()"){
-          fputs($file,">TEST".$i."V TNAme = 'V".$campo."',\r\n");
-          fputs($file,"INUmber = ".$INUmberV.";\r\n");
+        $archivo = $id."_".trim($nomEvaluacion)."_".$nomNivel.".BLM";
+        $archivo = str_replace(' ','',$archivo);
+        $file = fopen($archivo,"w") or die("Problemas");
+        fputs($file,"Calibración ".$nomEvaluacion.", ".$nomNivel." NIVEL COMPLETO\r\n");
+        fputs($file,"COMMENT\r\n");
+        fputs($file,">GLOBAL DFName = '".$nomNivel.".DAT',\r\n");
+        fputs($file,"NPArm = 2,\r\n");
+        $select = DB::select( DB::raw("SELECT nivel, COUNT(id_campo) AS totalcampo FROM $mapaTecnico 
+                                        WHERE id_evaluacion = :id_evaluacion AND nivel = :nivel GROUP BY nivel, id_campo
+                                        ORDER BY nivel"),
+                                        array('id_evaluacion' => $id,
+                                              'nivel' => $nivel,));
+        $totalItems = 0;
+        $totalCampos = 0;
+        $NITems = "(";
+        foreach($select as $result){
+          $totalCampos++;
+          $NITems .= $result->totalcampo.",";
+          $totalItems += $result->totalcampo;        
         }
-        $i++;
-      }
-      $select2 = DB::select( DB::raw("SELECT preguntas FROM niveles 
-                                      WHERE id_evaluacion=:id_evaluacion AND nivel=:nivel"),
-                                      array('nivel' => $nivel,                                        
-                                            'id_evaluacion' => $id,));
-      $totalPreguntas = (int)$select2[0]->preguntas;
-      $select3 = DB::select( DB::raw("SELECT DISTINCT forma FROM posicionestemp ORDER BY forma"),
-                                      array());
-      $i=1;
-      foreach($select3 as $result3){
-        $forma = (int)$result3->forma;
-        $INUmbers = "(";
-        $select4 = DB::select( DB::raw("SELECT id FROM temp t, posicionestemp p 
-                                        WHERE t.iditem=p.iditem AND p.forma=:forma AND p.nivel=:nivel
-                                        ORDER BY p.posicion"),
-                                      array('nivel' => $nivel,                                        
-                                            'forma' => $forma,));
+        $NITems .= ")";
+        $NITems = str_replace(",)",")",$NITems);
+        fputs($file,"NTEst = $totalCampos,\r\n");
+        $select = DB::select( DB::raw("SELECT nivel, COUNT(id_campo) AS totalpilotoscampos FROM $mapaTecnico 
+                                        WHERE id_evaluacion = :id_evaluacion AND nivel = :nivel AND funcion = 'Piloto' 
+                                        GROUP BY nivel, id_campo ORDER BY nivel"),
+                                        array('id_evaluacion' => $id,
+                                              'nivel' => $nivel,));
+        $totalCamposPiloto = 0;
+        $NVAriant = "NVAriant=(";
+        foreach($select as $result){
+          $totalCamposPiloto++;
+          $NVAriant .= $result->totalpilotoscampos.",";
+        }
+        $NVAriant .= ")";
+        $NVAriant = str_replace(",)",")",$NVAriant);
+        if(count($select)>0){
+          fputs($file,"NVTEst = $totalCamposPiloto,\r\n");
+        }
+        fputs($file,"LOGistic,\r\n");
+        fputs($file,"SAVe;\r\n");
+        fputs($file,">SAVE PARm = '".$nomNivel."_SERMM.PAR',\r\n");
+        fputs($file,"      SCOre = '".$nomNivel."_SERMM.SCO',\r\n");
+        fputs($file,"      ISTat = '".$nomNivel."_SERMM.IST';\r\n");
+        if(count($select)>0){
+          fputs($file,">LENGTH NITems=".$NITems.",\r\n");
+          fputs($file,"        ".$NVAriant.";\r\n");
+        }else{
+          fputs($file,">LENGTH NITems=".$NITems.";\r\n");
+        }              
+        fputs($file,">INPUT NTOtal = $totalItems,\r\n");
+        fputs($file,"       NALt = 4,\r\n");
+        if($evaluacion->id_codigo_evaluacion==6)
+          fputs($file,"       NIDchar = 5,\r\n");
+        if($evaluacion->id_codigo_evaluacion=1)
+          fputs($file,"       NIDchar = 10,\r\n");
+        $select = DB::select( DB::raw("SELECT COUNT(forma) as total FROM formas f, niveles n, evaluaciones e
+                                      WHERE f.nivel=n.nivel AND n.id_evaluacion = e.id AND n.nivel = :nivel 
+                                      AND f.id_evaluacion = e.id AND e.id = :id_evaluacion"),
+                                        array('id_evaluacion' => $id,
+                                              'nivel' => $nivel,));
+        $totalFormas = (int)$select[0]->total;
+        fputs($file,"       NFOrm = ".$totalFormas.",\r\n");
+        fputs($file,"       KFName = '".$nomNivel.".KEY';\r\n");
+        $select = DB::select( DB::raw("SELECT id, iditem, funcion FROM temp WHERE nivel=:nivel"),
+                                        array('nivel' => $nivel,));
+        $INAmes = "INAmes=(";
         $j=1;
-        foreach($select4 as $result4){
-          $INUmbers .= (int)$result4->id.",";
-          if($j%15==0)
-            $INUmbers .= "\r\n";
+        foreach($select as $result){
+          $INAmes .= "'".(int)$result->iditem."',";
+          if($j%9==0)
+            $INAmes .= "\r\n";
           $j++;
         }
-        $INUmbers .= ")";
-        $INUmbers = str_replace(",)",")",$INUmbers);
-        fputs($file,">FORM".$i." LENgth = $totalPreguntas,\r\n");
-        fputs($file,"INUmbers = ".$INUmbers.";\r\n");
-        $i++;
+        $INAmes .= ")";
+        $INAmes = str_replace(",)",")",$INAmes);
+        fputs($file,">ITEMS ".$INAmes.";\r\n");
+        $select = DB::select( DB::raw("SELECT DISTINCT campo, id_campo FROM $mapaTecnico 
+                                        WHERE id_evaluacion = :id_evaluacion ORDER BY id_campo"),
+                                        array('id_evaluacion' => $id,));
+        foreach($select as $result){
+          $idCampo = (int)$result->id_campo;
+          $campo = $result->campo;
+          $i=1;
+          $INUmber = "(";
+          $INUmberV = "(";
+          $select1 = DB::select( DB::raw("SELECT id, funcion FROM temp 
+                                        WHERE idcampo = :id_campo AND nivel=:nivel ORDER BY id "),
+                                        array('nivel' => $nivel,                                        
+                                              'id_campo' => $idCampo,));
+          $s=1;
+          $t=1;
+          foreach($select1 as $result1){
+            if($result1->funcion!='Piloto'){
+              $INUmber .= (int)$resultadoItems['id'].",";
+              $s++;
+              if($s%15==0)
+                $INUmber .= "\r\n";
+            }
+            if($resultadoItems['funcion']=='Piloto'){
+              $INUmberV .= (int)$resultadoItems['id'].",";
+              $t++;
+              if($t%15==0)
+                $INUmberV .= "\r\n";
+            }
+          }
+          $INUmber .= ")";
+          $INUmberV .= ")";
+          $INUmber = str_replace(",)",")",$INUmber);
+          $INUmberV = str_replace(",)",")",$INUmberV);
+          fputs($file,">TEST".$i." TNAme = '".$campo."',\r\n");
+          fputs($file,"INUmber = ".$INUmber.";\r\n");
+          if($INUmberV!="()"){
+            fputs($file,">TEST".$i."V TNAme = 'V".$campo."',\r\n");
+            fputs($file,"INUmber = ".$INUmberV.";\r\n");
+          }
+          $i++;
+        }
+        $select2 = DB::select( DB::raw("SELECT preguntas FROM niveles 
+                                        WHERE id_evaluacion=:id_evaluacion AND nivel=:nivel"),
+                                        array('nivel' => $nivel,                                        
+                                              'id_evaluacion' => $id,));
+        $totalPreguntas = (int)$select2[0]->preguntas;
+        $select3 = DB::select( DB::raw("SELECT DISTINCT forma FROM posicionestemp ORDER BY forma"),
+                                        array());
+        $i=1;
+        foreach($select3 as $result3){
+          $forma = (int)$result3->forma;
+          $INUmbers = "(";
+          $select4 = DB::select( DB::raw("SELECT id FROM temp t, posicionestemp p 
+                                          WHERE t.iditem=p.iditem AND p.forma=:forma AND p.nivel=:nivel
+                                          ORDER BY p.posicion"),
+                                        array('nivel' => $nivel,                                        
+                                              'forma' => $forma,));
+          $j=1;
+          foreach($select4 as $result4){
+            $INUmbers .= (int)$result4->id.",";
+            if($j%15==0)
+              $INUmbers .= "\r\n";
+            $j++;
+          }
+          $INUmbers .= ")";
+          $INUmbers = str_replace(",)",")",$INUmbers);
+          fputs($file,">FORM".$i." LENgth = $totalPreguntas,\r\n");
+          fputs($file,"INUmbers = ".$INUmbers.";\r\n");
+          $i++;
+        }
+        if($evaluacion->id_codigo_evaluacion==6)
+          fputs($file,"(5A1, 4X, I2, ".$totalPreguntas."A1)\r\n");
+        if($evaluacion->id_codigo_evaluacion==1)
+          fputs($file,"(10A1, 1X, I2, ".$totalPreguntas."A1)\r\n");
+        fputs($file,">CALIB PLOt = 1.0000,\r\n");
+        fputs($file,"       ACCel = 1.0000;\r\n");
+        fputs($file,">SCORE NQPt = ".$NITems.",\r\n");
+        fputs($file,"       NOPrint;\r\n");
+        fclose($file);
+        DB::statement("DROP TABLE posicionestemp");
+        DB::statement("DROP TABLE temp");
+        $uploads_dir = '/uploads';
+        rename ($archivo, "/var/www/html/sip_final/app/uploads/$archivo");
+        $evaluacionBilog->id_evaluacion = $id;
+        $evaluacionBilog->nivel = $nivel;
+        $evaluacionBilog->archivo = $archivo;
+        $evaluacionBilog->save();
+        $file = "/var/www/html/sip_final/app/uploads/".$archivo;
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.basename($file));
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        ob_clean();
+        flush();
+        readfile($file);
+        exit;
+      }else{
+        $file = "/var/www/html/sip_final/app/uploads/".$selectArchivo[0]->archivo;
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.basename($file));
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        ob_clean();
+        flush();
+        readfile($file);
+        exit;
+
       }
-      if($evaluacion->id_codigo_evaluacion==6)
-        fputs($file,"(5A1, 4X, I2, ".$totalPreguntas."A1)\r\n");
-      if($evaluacion->id_codigo_evaluacion==1)
-        fputs($file,"(10A1, 1X, I2, ".$totalPreguntas."A1)\r\n");
-      fputs($file,">CALIB PLOt = 1.0000,\r\n");
-      fputs($file,"       ACCel = 1.0000;\r\n");
-      fputs($file,">SCORE NQPt = ".$NITems.",\r\n");
-      fputs($file,"       NOPrint;\r\n");
-      fclose($file);
-      DB::statement("DROP TABLE posicionestemp");
-      DB::statement("DROP TABLE temp");
     }
 }

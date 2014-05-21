@@ -38,7 +38,7 @@
   <tr>
         <td>{{ $evaluacion->id }}</td>
         <td>{{ $evaluacion->nombre  }}</td>
-        @if($evaluacion->estado == 3)                            
+        @if($evaluacion->estado == 3)
         	<td>{{ HTML::link( 'calificacion/calificar/'.$evaluacion->id , 'Calificar' ) }}</td>
         @elseif($evaluacion->estado == 4)
           <td>{{ HTML::link( 'calificacion/calculoIneval/'.$evaluacion->id , 'Indice INEVAL' ) }}</td>
